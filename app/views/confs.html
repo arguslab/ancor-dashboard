@@ -9,8 +9,10 @@
 
 <div class="row marketing">
   <h1>{{title}}</h1>
-  <h2>Config title 1</h2>
-  <p>Info</p>
+  <div ng-repeat="conf in data">
+    <h2><a>{{conf.name}}</a></h2>
+    <p>{{conf.contents}}</p>
+  </div>
 </div>
 
 <div class="footer">
