@@ -9,4 +9,6 @@ angular.module('ancorDashboardApp')
       'Karma',
       'SitePoint'
     ];
+
+    $scope.instances = [{name: 'Test Name', intface: 'Test Interface', stage: 'Test Stage'}, {name: 'Test 2', intface: '2Int 2Face', stage: 'Stage'}];
   });

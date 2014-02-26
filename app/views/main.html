@@ -47,10 +47,32 @@
 
   <h4>D3.js Test</h4>
   <div id="chartTest"></div>
+
+  <h3>Instance Details</h3>
+  <div class="row">
+    <div class="col-md-5">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Interface</th>
+            <th>Stage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="instance in instances">
+            <td>{{instance.name}}</td>
+            <td>{{instance.intface}}</td>
+            <td>{{instance.stage}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
 <div class="footer">
-  <p>Kansas State University</p>
+  <p>Kansas State University | Brian Cain 2014</p>
 </div>
 
 <script src="bower_components/d3/d3.js"></script>
