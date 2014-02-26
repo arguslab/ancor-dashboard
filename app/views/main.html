@@ -48,9 +48,9 @@
   <h4>D3.js Test</h4>
   <div id="chartTest"></div>
 
-  <h3>Instance Details</h3>
+  <h4>Instance Details</h4>
   <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-6">
       <table class="table table-hover">
         <thead>
           <tr>
@@ -63,10 +63,13 @@
           <tr ng-repeat="instance in instances">
             <td>{{instance.name}}</td>
             <td>{{instance.intface}}</td>
-            <td>{{instance.stage}}</td>
+            <td><span class="label label-success">{{instance.stage}}</span></td>
           </tr>
         </tbody>
       </table>
+    </div>
+    <div class="col-md-5">
+      <div id="instanceChart">D3 Chart Goes Here</div>
     </div>
   </div>
 </div>

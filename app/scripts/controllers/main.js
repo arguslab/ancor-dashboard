@@ -10,5 +10,5 @@ angular.module('ancorDashboardApp')
       'SitePoint'
     ];
 
-    $scope.instances = [{name: 'Test Name', intface: 'Test Interface', stage: 'Test Stage'}, {name: 'Test 2', intface: '2Int 2Face', stage: 'Stage'}];
+    $scope.instances = [{name: 'Test Name', intface: 'Test Interface', stage: 'Success'}, {name: 'Test 2', intface: '2Int 2Face', stage: 'Success'}];
   });
