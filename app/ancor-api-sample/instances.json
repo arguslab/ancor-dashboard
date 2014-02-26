@@ -1,0 +1,23 @@
+[
+  {
+    "id": "528527014c9be8da23000001",
+    "name": "web0",
+    "stage": "undefined",
+    "plannedStage": "deploy",
+    "interfaces": ["10.128.144.10"]
+  },
+  {
+    "id": "528527254c9be8da23000002",
+    "name": "db0",
+    "stage": "deploy",
+    "plannedStage": "deploy",
+    "interfaces": ["10.128.144.20"]
+  },
+  {
+    "id": "528527464c9be8da23000003",
+    "name": "weblb0",
+    "stage": "deploy",
+    "plannedStage": "deploy",
+    "interfaces": ["10.128.144.30"]
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "id": "528527014c9be8da23000001",
+  "name": "web0",
+  "stage": "undefined",
+  "plannedStage": "deploy",
+  "interfaces": ["10.128.144.10"],
+  "imports": [
+    {
+      "id": "5285286d4c9be8da23000004",
+      "slug": "mysql_querying",
+      "type": "single_port",
+      "protocol": "tcp",
+      "port": 3306,
+      "instances": ["528527254c9be8da23000002"]
+    }
+  ],
+  "exports": [
+    {
+      "id": "5285286d4c9be8da23000005",
+      "slug": "http",
+      "type": "single_port",
+      "protocol": "tcp",
+      "port": 80,
+      "instances": ["528527464c9be8da23000003"]
+    }
+  ]
+}

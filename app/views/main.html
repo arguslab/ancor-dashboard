@@ -62,8 +62,13 @@
         <tbody>
           <tr ng-repeat="instance in instances">
             <td>{{instance.name}}</td>
-            <td>{{instance.intface}}</td>
-            <td><span class="label label-success">{{instance.stage}}</span></td>
+            <td>{{instance.interfaces}}</td>
+            <td ng-if="instance.stage == 'undefined'">
+              <span class="label label-danger">{{instance.stage}}</span>
+            </td>
+            <td ng-if="instance.stage == 'deploy'">
+              <span class="label label-success">{{instance.stage}}</span>
+            </td>
           </tr>
         </tbody>
       </table>
