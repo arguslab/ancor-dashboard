@@ -13,6 +13,10 @@ angular.module('ancorDashboardApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/confs', {
+        templateUrl: 'views/confs.html',
+        controller: 'ConfsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
