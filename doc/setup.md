@@ -1,5 +1,5 @@
 # Setting up ANCOR Dashboard
 
-Information Here.
+Follow the quickstart guide to get the dashboard up and running
 
 ## Quickstart Guide
