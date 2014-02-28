@@ -2,6 +2,12 @@
 
 Here is the initial stages of documentation for this project
 
+To launch the project, type the following:
+
+    $ grunt serve
+
+And grunt should take care of the rest...assuming you have all the dependencies.
+
 ## Frameworks
 
 Here are the various frameworks used for this project:
@@ -10,7 +16,7 @@ Here are the various frameworks used for this project:
 - Bower - dependency management
 - Yeoman - scaffolding tool
 - AngularJS - javascript frontend framework
-- Twitter Bootstrap - for CSS and various styling
+- Angular UI - for CSS and various styling using Twitter Bootstrap
 
 ## Running Tests
 
