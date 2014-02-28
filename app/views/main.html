@@ -52,7 +52,30 @@
             <td ng-if="instance.stage == 'deploy'">
               <span class="label label-success">{{instance.stage}}</span>
             </td>
-            <td><button class='btn btn-info' ng-click="sendAlert(instance)">View</button></td>
+            <td>
+              <div ng-controller="MainCtrl">
+                  <script type="text/ng-template" id="myModalContent.html">
+                      <div class="modal-header">
+                          <h3>Instance Details</h3>
+                      </div>
+                      <div class="modal-body">
+                          <ul>
+                              <li ng-repeat="(key,item) in items">
+                                  <a ng-click="selected.item = item">{{key}} - {{ item }}</a>
+                              </li>
+                          </ul>
+                          Selected: <b>{{ selected.item }}</b>
+                      </div>
+                      <div class="modal-footer">
+                          <button class="btn btn-primary" ng-click="ok()">OK</button>
+                          <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                      </div>
+                  </script>
+
+                  <button class='btn btn-info' ng-click="open(instance)">View</button>
+                  <!-- <button class='btn btn-info' ng-click="sendAlert(instance)">View</button> -->
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
