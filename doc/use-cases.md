@@ -6,6 +6,12 @@ Information is subject to change.
 
 ## Instances
 
+### General Overview
+
+This is the view you see when you visit the main page of the dashboard
+
+![img](http://i.imgur.com/rPUN55N.png)
+
 ### State of Instances
 
 `GET /api/instances`
