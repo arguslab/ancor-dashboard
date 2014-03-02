@@ -1,12 +1,43 @@
 'use strict';
 
+var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
+  $scope.items = items;
+  $scope.selected = {
+    item: $scope.items[0]
+  };
+
+  $scope.ok = function () {
+    $modalInstance.close($scope.selected.item);
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+};
+
 angular.module('ancorDashboardApp')
   .controller('MainCtrl', function ($scope, $http, $window, $modal, $log) {
     $http.get('ancor-api-sample/instances.json').success(function(data) {
       $scope.instances = data;
-    });
 
-    // $scope.items = ['item1', 'item2', 'item3'];
+      var numDeployed = 0,
+          numUndefined = 0;
+
+      angular.forEach($scope.instances, function(value){
+        angular.forEach(value, function(v, k){
+          // console.log('k: ' + k + '| v: ' + v);
+          if (v === 'deploy' && k === 'stage') {
+            numDeployed++;
+          } else if (v === 'undefined' && k === 'stage') {
+            numUndefined++;
+          }
+        });
+      });
+
+      $scope.totalDeployed = numDeployed;
+      $scope.totalUndefined = numUndefined;
+      $scope.totalInstances = $scope.instances.length;
+    });
 
     // GET api/instances/x
     // Query ancor for specific instance for detailed view
@@ -53,18 +84,3 @@ angular.module('ancorDashboardApp')
 
     // $scope.instances = [{name: 'Test Name', interfaces: 'Test Interface', stage: 'Success'}, {name: 'Test 2', interfaces: '2Int 2Face', stage: 'Success'}];
   });
-
-var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
-  $scope.items = items;
-  $scope.selected = {
-    item: $scope.items[0]
-  };
-
-  $scope.ok = function () {
-    $modalInstance.close($scope.selected.item);
-  };
-
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
-}

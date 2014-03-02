@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ancorDashboardApp')
-  .controller('ConfsCtrl', function ($scope, $location, $http) {
+  .controller('ConfsCtrl', function ($scope) {
     $scope.title = 'ANCOR Configurations';
     $scope.version = '0.0.1'; // will be replaced by HTTP GET /api/version
     $scope.awesomeThings = [

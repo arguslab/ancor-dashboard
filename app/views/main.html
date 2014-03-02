@@ -21,18 +21,30 @@
   <h3 class="text-muted">ancor dashboard {{version}}</h3>
 </div>
 
-<div class="jumbotron">
-  <h1>ANCOR Network</h1>
-  <p class="lead">
-    <img src="images/ancor.png" alt="I'm Yeoman" height="140" width="128"><br>
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
+<!-- <div class="jumbotron"> -->
+<!--   <h1>ANCOR Network</h1> -->
+<!--   <p class="lead"> -->
+<!--     <img src="images/ancor.png" alt="I'm Yeoman" height="140" width="128"><br> -->
+<!--   </p> -->
+<!--   <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p> -->
+<!-- </div> -->
+
+<div class="row text-center">
+  <div class="col-md-4">
+    <h1 class="text-primary">{{totalInstances}}</h1> Instances
+  </div>
+  <div class="col-md-4">
+    <h1 class="text-success">{{totalDeployed}}</h1> Deployed
+  </div>
+  <div class="col-md-4">
+    <h1 class="text-danger">{{totalUndefined}}</h1> Undefined
+  </div>
 </div>
 
 <div class="row marketing">
   <h4>Instance State Details</h4>
   <div class="row">
-    <div class="col-md-7">
+    <!-- <div class="col-md-9"> -->
       <table class="table table-hover">
         <thead>
           <tr>
@@ -74,15 +86,14 @@
                   </script>
 
                   <button class='btn btn-info' ng-click="open(instance)">View</button>
-                  <!-- <button class='btn btn-info' ng-click="sendAlert(instance)">View</button> -->
               </div>
             </td>
           </tr>
         </tbody>
       </table>
-    </div>
+    <!-- </div> -->
     <div class="col-md-5">
-      <div id="instanceChart">D3 Chart Goes Here</div>
+      <!-- <div id="instanceChart">D3 Chart Goes Here</div> -->
     </div>
   </div>
 
