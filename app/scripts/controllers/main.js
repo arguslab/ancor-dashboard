@@ -75,6 +75,7 @@ angular.module('ancorDashboardApp')
 
     $scope.title = 'ANCOR Index';
     $scope.version = '0.0.1'; // will be replaced by HTTP GET /api/version
+    $scope.dashboardVersion = '0.0.3'; // will be replaced by HTTP GET /api/version
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
