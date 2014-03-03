@@ -28,6 +28,8 @@ Grunt will then run all of the tests defined in `test/`.
 
 ## Use Cases
 
+For more information about use cases, visit the `use-case` doc.
+
 - Seeing the state of instances
 - Seeing the current tasks
 - Viewing goals, roles
