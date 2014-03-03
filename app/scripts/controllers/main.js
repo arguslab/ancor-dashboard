@@ -21,6 +21,8 @@ angular.module('ancorDashboardApp')
       $scope.instances = data;
 
       var numDeployed = 0,
+          numUndeployed = 0,
+          numErrored = 0,
           numUndefined = 0;
 
       angular.forEach($scope.instances, function(value){
@@ -30,12 +32,18 @@ angular.module('ancorDashboardApp')
             numDeployed++;
           } else if (v === 'undefined' && k === 'stage') {
             numUndefined++;
+          } else if (v === 'undeployed' && k === 'stage') {
+            numErrored++;
+          } else if (v === 'error' && k === 'stage') {
+            numUndefined++;
           }
         });
       });
 
       $scope.totalDeployed = numDeployed;
       $scope.totalUndefined = numUndefined;
+      $scope.totalUndeployed = numUndeployed;
+      $scope.totalErrored = numErrored;
       $scope.totalInstances = $scope.instances.length;
     });
 
@@ -74,8 +82,8 @@ angular.module('ancorDashboardApp')
     };
 
     $scope.title = 'ANCOR Index';
-    $scope.version = '0.0.1'; // will be replaced by HTTP GET /api/version
-    $scope.dashboardVersion = '0.0.3'; // will be replaced by HTTP GET /api/version
+    $scope.version = 'v0.0.1'; // will be replaced by HTTP GET /api/version
+    $scope.dashboardVersion = 'v0.0.3'; // will be replaced by HTTP GET /api/version
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

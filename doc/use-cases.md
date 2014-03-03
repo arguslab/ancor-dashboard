@@ -10,7 +10,7 @@ Information is subject to change.
 
 This is the view you see when you visit the main page of the dashboard
 
-![img](http://i.imgur.com/rPUN55N.png)
+![img](http://i.imgur.com/WeHwwRI.png)
 
 ### State of Instances
 

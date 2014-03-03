@@ -3,8 +3,8 @@
 angular.module('ancorDashboardApp')
   .controller('ConfsCtrl', function ($scope) {
     $scope.title = 'ANCOR Configurations';
-    $scope.dashboardVersion = '0.0.3';
-    $scope.version = '0.0.1'; // will be replaced by HTTP GET /api/version
+    $scope.dashboardVersion = 'v0.0.3';
+    $scope.version = 'v0.0.1'; // will be replaced by HTTP GET /api/version
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
