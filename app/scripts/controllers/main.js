@@ -19,13 +19,19 @@ angular.module('ancorDashboardApp')
   .controller('MainCtrl', function ($scope, $http, $window, $modal, $log) {
     $http.get('ancor-api-sample/instances.json').success(function(data) {
       $scope.instances = data;
+      $scope.circles = [];
 
       var numDeployed = 0,
           numUndeployed = 0,
           numErrored = 0,
-          numUndefined = 0;
+          numUndefined = 0,
+          x = 15,
+          y = 20;
 
       angular.forEach($scope.instances, function(value){
+        $scope.circles.push({'x':x, 'y':y, 'r':15});
+        x += 50;
+        // y += 20;
         angular.forEach(value, function(v, k){
           // console.log('k: ' + k + '| v: ' + v);
           if (v === 'deploy' && k === 'stage') {
@@ -81,6 +87,14 @@ angular.module('ancorDashboardApp')
       });
     };
 
+    $scope.graph = {'width': 400, 'height': 100};
+    // $scope.circles = [
+    //   {'x': 15, 'y':20, 'r':15},
+    //   {'x': 50, 'y':60, 'r':20},
+    //   {'x': 80, 'y':15, 'r':15},
+    // ];
+
+    // Data
     $scope.title = 'ANCOR Index';
     $scope.version = 'v0.0.1'; // will be replaced by HTTP GET /api/version
     $scope.dashboardVersion = 'v0.0.3'; // will be replaced by HTTP GET /api/version

@@ -1,13 +1,6 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <style type="text/css">
-        div.bar {
-          display: inline-block;
-          width: 20px;
-          height: 75px; /* Gets overriden by D3-assigned height below */
-          margin-right: 2px;
-          background-color: teal;
-        }
   </style>
   <title>{{title}}</title>
 </head>
@@ -51,8 +44,6 @@
     <h1 class="text-danger">{{totalErrored}}</h1> Error
   </div>
 </div>
-
-
 
 <div class="row marketing">
   <div class="row">
@@ -110,25 +101,14 @@
     </div>
   </div>
 
-  <h4>BootstrapUI Test</h4>
-  <div class="dropdown">
-    <button class="btn dropdown-toggle">
-      <a class="dropdown-toggle">
-        Dropdown
-        <span class="caret"></span>
-      </a>
-    </button>
-    <ul class="dropdown-menu">
-      <li ng-repeat="thing in awesomeThings">
-        <a>{{thing}}</a>
-      </li>
-    </ul>
-  </div>
-
-  <h4>D3.js Test</h4>
-  <div id="chartTest"></div>
-
-  
+  <h4>Instance Graphs</h4>
+  <svg ng-attr-height="{{graph.height}}" ng-attr-width="{{graph.width}}">
+    <circle ng-repeat="circle in circles"
+        ng-attr-cx="{{circle.x}}"
+        ng-attr-cy="{{circle.y}}"
+        ng-attr-r="{{circle.r}}">
+    </circle>
+  </svg>
 </div>
 
 <div class="footer">
@@ -136,15 +116,4 @@
 </div>
 
 <script src="bower_components/d3/d3.js"></script>
-<script type="text/javascript">
-        var dataset = [5, 15, 10, 25, 20];
-        d3.select("#chartTest").selectAll("div")
-            .data(dataset)
-            .enter()
-            .append("div")
-            .attr("class", "bar")
-            .style("height", function (d) {
-                var barHeight = d * 5;
-                return barHeight + "px";
-            });
-</script>
+<!-- <script src="scripts/forced-graph.js"></script> -->
