@@ -43,6 +43,9 @@ angular.module('ancorDashboardApp')
           } else if (v === 'error' && k === 'stage') {
             numUndefined++;
           }
+
+          // do checks for plannedStage here
+          //
         });
       });
 
@@ -66,10 +69,27 @@ angular.module('ancorDashboardApp')
       $window.alert(str);
     };
 
+    $scope.replaceInstance = function (id) {
+      var url = '/v1/instances/' + id,
+          data = { 'replace': true};
+      console.log('replace ' + id);
+      $window.alert('Replaced ' + id + '!');
+
+      $http.post(url, data).success();
+    };
+
+    $scope.deleteInstance = function (id) {
+      var url = '/v1/instances/' + id;
+      console.log('delete ' + id);
+      $window.alert('Deleted ' + id + '!');
+
+      $http.delete(url);
+    };
+
     // Modal view of a given instance
     $scope.open = function (instance) {
       $scope.items = instance;
-      console.log(instance);
+      // console.log(instance);
       var modalInstance = $modal.open({
         templateUrl: 'myModalContent.html',
         controller: ModalInstanceCtrl,

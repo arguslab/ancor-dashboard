@@ -10,16 +10,34 @@ Information is subject to change.
 
 This is the view you see when you visit the main page of the dashboard
 
-![img](http://i.imgur.com/WeHwwRI.png)
+### Instances
 
-### State of Instances
+#### State of Instances
 
 `GET /api/instances`
 
-![img](http://i.imgur.com/X0LA8Sy.png)
+Will be displayed on a table view
 
 `GET /api/instances/123`
 
 Currently this view is missing some of the more advanced details due to lack of data. Will update photo once I've got actual data from the REST API.
 
-![img](http://i.imgur.com/RBI7mru.png)
+Will be displayed on modal popup
+
+#### Create new instance
+
+`POST /v1/instances`
+
+Select the button above the instances table.
+
+#### Mark an instance for replacement
+
+`POST /v1/instances/123`
+
+Select the `replace` button in the instance table view
+
+#### Delete an instance
+
+`DELETE /v1/instances/123`
+
+Select the `delete` button in the instance table view
