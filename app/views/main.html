@@ -72,10 +72,16 @@
             <td>{{instance.name}}</td>
             <td>{{instance.interfaces}}</td>
             <td ng-if="instance.stage == 'undefined'">
-              <span class="label label-danger">{{instance.stage}}</span>
+              <span class="label label-warning">{{instance.stage}}</span>
             </td>
             <td ng-if="instance.stage == 'deploy'">
               <span class="label label-success">{{instance.stage}}</span>
+            </td>
+            <td ng-if="instance.stage == 'undeployed'">
+              <span class="label label-success">{{instance.stage}}</span>
+            </td>
+            <td ng-if="instance.stage == 'error'">
+              <span class="label label-danger">{{instance.stage}}</span>
             </td>
             <td>
               <div ng-controller="MainCtrl">
@@ -123,8 +129,6 @@
   </div>
 
   <h4>Environments</h4>
-
-  <h4>Roles</h4>
 
   <h4>Goals</h4>
 
