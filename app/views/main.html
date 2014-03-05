@@ -96,8 +96,13 @@
             </td>
             <td>
               <div class="btn-group">
-                <button class='btn btn-warning' ng-click="replaceInstance(instance.id)">Replace</button>
-                <button class='btn btn-danger' ng-click="deleteInstance(instance.id)">Delete</button>
+                <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                  Action <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a ng-click="replaceInstance(instance.id)">Replace</a></li>
+                  <li><a ng-click="deleteInstance(instance.id)">Delete</a></li>
+                </ul>
               </div>
             </td>
           </tr>
