@@ -16,7 +16,7 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
 };
 
 angular.module('ancorDashboardApp')
-  .controller('MainCtrl', function ($scope, $http, $window, $modal, $log) {
+  .controller('MainCtrl', function ($scope, $http, $window, $modal, $log, $route) {
     $http.get('ancor-api-sample/instances.json').success(function(data) {
       $scope.instances = data;
       $scope.circles = [];
@@ -76,6 +76,7 @@ angular.module('ancorDashboardApp')
       $window.alert('Replaced ' + id + '!');
 
       $http.post(url, data).success();
+      $route.reload();
     };
 
     $scope.deleteInstance = function (id) {
@@ -84,6 +85,7 @@ angular.module('ancorDashboardApp')
       $window.alert('Deleted ' + id + '!');
 
       $http.delete(url);
+      $route.reload();
     };
 
     // Modal view of a given instance
@@ -113,6 +115,13 @@ angular.module('ancorDashboardApp')
     //   {'x': 50, 'y':60, 'r':20},
     //   {'x': 80, 'y':15, 'r':15},
     // ];
+
+    // roles to be replaced with http get
+    $scope.roles = [
+      'web',
+      'db',
+      'weblb'
+    ];
 
     // Data
     $scope.title = 'ANCOR Index';

@@ -49,7 +49,14 @@
   <div class="row">
     <h4>Instance State Details</h4>
     <!-- <div class="col-md-9"> -->
-      <button class='btn btn-primary' ng-click="">Add New Instance</button>
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          Add New Instance <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" >
+          <li ng-repeat="role in roles"><a ng-click="">{{role}}</a></li>
+        </ul>
+      </div>
       <table class="table table-hover">
         <thead>
           <tr>
