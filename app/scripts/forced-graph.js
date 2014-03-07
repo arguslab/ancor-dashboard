@@ -1,48 +1,38 @@
 'use strict';
 
+// wrap everything in a function
+// to prevent scope problems
+//
 (function(){
+
   function tick() {
-    link
-        .attr('x1', function(d) { return d.source.x; })
-        .attr('y1', function(d) { return d.source.y; })
-        .attr('x2', function(d) { return d.target.x; })
-        .attr('y2', function(d) { return d.target.y; });
-
-    node
-        .attr('transform', function(d) { return 'translate(' + d.x + ',' + d.y + ')'; });
+    path.attr('d', linkArc);
+    circle.attr('transform', transform);
+    text.attr('transform', transform);
   }
 
-  function mouseover() {
-    d3.select(this).select('circle').transition()
-        .duration(750)
-        .attr('r', 26);
+  // HTTP GET
+  // /v1/instances
+  function getEdges() {
+    var links = [
+      {source: 'Test1', target: 'Test2', type: 'licensing'},
+      {source: 'Test1', target: 'Test3', type: 'licensing'},
+      {source: 'Test3', target: 'Test1', type: 'suit'},
+      {source: 'Test1', target: 'Test2', type: 'suit'},
+      {source: 'Test1', target: 'Test3', type: 'suit'},
+      {source: 'Test1', target: 'Test3', type: 'suit'},
+      {source: 'Test1', target: 'Test2', type: 'suit'},
+    ];
+
+    var newElem = {source: 'Test5', target: 'Test2', type: 'suit'};
+
+    links.push(newElem);
+    return links;
   }
 
-  function mouseout() {
-    d3.select(this).select('circle').transition()
-        .duration(750)
-        .attr('r', 18);
-  }
-
-  var links = [
-    {source: 'Web Application', target: 'Redis Server', type: 'ancor'},
-    {source: 'Web Application', target: 'Web Application Load Balancer', type: 'ancor'},
-    {source: 'Web Application', target: 'MySQL Slave Database', type: 'ancor'},
-    {source: 'Web Application', target: 'MySQL Master Database', type: 'ancor'},
-    {source: 'Web Application Load Balancer', target: 'Web Application', type: 'ancor'},
-    {source: 'Redis Server', target: 'Web Application', type: 'ancor'},
-    {source: 'Redis Server', target: 'Sidekiq Worker Application', type: 'ancor'},
-    {source: 'Sidekiq Worker Application', target: 'Redis Server', type: 'ancor'},
-    {source: 'Sidekiq Worker Application', target: 'MySQL Slave Database', type: 'ancor'},
-    {source: 'Sidekiq Worker Application', target: 'MySQL Master Database', type: 'ancor'},
-    {source: 'MySQL Slave Database', target: 'Web Application', type: 'ancor'},
-    {source: 'MySQL Slave Database', target: 'Sidekiq Worker Application', type: 'ancor'},
-    {source: 'MySQL Slave Database', target: 'MySQL Master Database', type: 'ancor'},
-    {source: 'MySQL Master Database', target: 'MySQL Slave Database', type: 'ancor'},
-    {source: 'MySQL Master Database', target: 'Sidekiq Worker Application', type: 'ancor'}
-  ];
-
-  var nodes = {};
+  // http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/
+  var links = getEdges(),
+      nodes = {};
 
   // Compute the distinct nodes from the links.
   links.forEach(function(link) {
@@ -50,14 +40,14 @@
     link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
   });
 
-  var width = 760,
-      height = 350;
+  var width = 460,
+      height = 300;
 
   var force = d3.layout.force()
       .nodes(d3.values(nodes))
       .links(links)
       .size([width, height])
-      .linkDistance(190)
+      .linkDistance(60)
       .charge(-300)
       .on('tick', tick)
       .start();
@@ -66,25 +56,57 @@
       .attr('width', width)
       .attr('height', height);
 
-  var link = svg.selectAll('link')
-      .data(force.links())
-      .enter().append('line')
-      .attr('class', 'link');
+  // Per-type markers, as they don't inherit styles.
+  svg.append('defs').selectAll('marker')
+      .data(['suit', 'licensing', 'resolved'])
+    .enter().append('marker')
+      .attr('id', function(d) { return d; })
+      .attr('viewBox', '0 -5 10 10')
+      .attr('refX', 15)
+      .attr('refY', -1.5)
+      .attr('markerWidth', 6)
+      .attr('markerHeight', 6)
+      .attr('orient', 'auto')
+    .append('path')
+      .attr('d', 'M0,-5L10,0L0,5');
 
-  var node = svg.selectAll('.node')
+  var path = svg.append('g').selectAll('path')
+      .data(force.links())
+    .enter().append('path')
+      .attr('class', function(d) { return 'link ' + d.type; })
+      .attr('marker-end', function(d) { return 'url(#' + d.type + ')'; });
+
+  var circle = svg.append('g').selectAll('circle')
       .data(force.nodes())
-      .enter().append('g')
-      .attr('class', 'node')
-      .on('mouseover', mouseover)
-      .on('mouseout', mouseout)
+    .enter().append('circle')
+      .attr('r', 6)
       .call(force.drag);
 
-  node.append('circle')
-      .attr('r', 18);
-
-  node.append('text')
-      .attr('x', 12)
-      .attr('dy', '.35em')
+  var text = svg.append('g').selectAll('text')
+      .data(force.nodes())
+    .enter().append('text')
+      .attr('x', 8)
+      .attr('y', '.31em')
       .text(function(d) { return d.name; });
+
+  // Use elliptical arc path segments to doubly-encode directionality.
+  function linkArc(d) {
+    var dx = d.target.x - d.source.x,
+        dy = d.target.y - d.source.y,
+        dr = Math.sqrt(dx * dx + dy * dy);
+    return 'M' + d.source.x + ',' + d.source.y + 'A' + dr + ',' + dr + ' 0 0,1 ' + d.target.x + ',' + d.target.y;
+  }
+
+  function transform(d) {
+    return 'translate(' + d.x + ',' + d.y + ')';
+  }
+
+  // Freeze D3 graph instead of making it bounce around
+  // on initial load
+  var k = 0;
+  while ((force.alpha() > 1e-2) && (k < 150)) {
+    force.tick(),
+    k = k + 1;
+  }
 
 })();
