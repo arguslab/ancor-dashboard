@@ -1,6 +1,46 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <style type="text/css">
+    #directedNetworkContainer {
+      width: 752px;
+      height: 452px;
+      border: 1px solid lightgray;
+    }
+
+    path.link {
+      fill: #666;
+      stroke: #666;
+      stroke-width: 1.5px;
+    }
+
+    marker#licensing {
+      fill: green;
+    }
+
+    path.link.licensing {
+      stroke: green;
+    }
+
+    path.link.resolved {
+      stroke-dasharray: 0,2 1;
+    }
+
+    circle {
+      fill: #ccc;
+      stroke: #333;
+      stroke-width: 1.5px;
+    }
+
+    text {
+      font: 10px sans-serif;
+      pointer-events: none;
+    }
+
+    text.shadow {
+      stroke: #fff;
+      stroke-width: 3px;
+      stroke-opacity: .8;
+    }
   </style>
   <title>{{title}}</title>
 </head>
@@ -142,6 +182,7 @@
         ng-attr-r="{{circle.r}}">
     </circle>
   </svg>
+  <div id="forceGraph"></div>
 </div>
 
 <div class="footer">
@@ -149,4 +190,4 @@
 </div>
 
 <script src="bower_components/d3/d3.js"></script>
-<!-- <script src="scripts/forced-graph.js"></script> -->
+<script src="scripts/forced-graph.js"></script>

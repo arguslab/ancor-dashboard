@@ -1,6 +1,29 @@
 'use strict';
 
 (function(){
+  function tick() {
+    link
+        .attr('x1', function(d) { return d.source.x; })
+        .attr('y1', function(d) { return d.source.y; })
+        .attr('x2', function(d) { return d.target.x; })
+        .attr('y2', function(d) { return d.target.y; });
+
+    node
+        .attr('transform', function(d) { return 'translate(' + d.x + ',' + d.y + ')'; });
+  }
+
+  function mouseover() {
+    d3.select(this).select('circle').transition()
+        .duration(750)
+        .attr('r', 26);
+  }
+
+  function mouseout() {
+    d3.select(this).select('circle').transition()
+        .duration(750)
+        .attr('r', 18);
+  }
+
   var links = [
     {source: 'Web Application', target: 'Redis Server', type: 'ancor'},
     {source: 'Web Application', target: 'Web Application Load Balancer', type: 'ancor'},
@@ -28,7 +51,7 @@
   });
 
   var width = 760,
-      height = 300;
+      height = 350;
 
   var force = d3.layout.force()
       .nodes(d3.values(nodes))
@@ -64,26 +87,4 @@
       .attr('dy', '.35em')
       .text(function(d) { return d.name; });
 
-  function tick() {
-    link
-        .attr('x1', function(d) { return d.source.x; })
-        .attr('y1', function(d) { return d.source.y; })
-        .attr('x2', function(d) { return d.target.x; })
-        .attr('y2', function(d) { return d.target.y; });
-
-    node
-        .attr('transform', function(d) { return 'translate(' + d.x + ',' + d.y + ')'; });
-  }
-
-  function mouseover() {
-    d3.select(this).select('circle').transition()
-        .duration(750)
-        .attr('r', 26);
-  }
-
-  function mouseout() {
-    d3.select(this).select('circle').transition()
-        .duration(750)
-        .attr('r', 18);
-  }
 })();
