@@ -82,6 +82,11 @@
       .attr('r', 6)
       .call(force.drag);
 
+  // alert user to node name on click
+  circle.on('click', function(d) {
+    alert(d.name);
+  });
+
   var text = svg.append('g').selectAll('text')
       .data(force.nodes())
     .enter().append('text')
