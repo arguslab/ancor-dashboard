@@ -2,6 +2,10 @@
 
 angular.module('ancorDashboardApp')
   .controller('ConfsCtrl', function ($scope) {
+    // $http.get('ancor-api-sample/instances.json').success(function(data) {
+    //   // get current config
+    // )};
+
     $scope.title = 'ANCOR Configurations';
     $scope.dashboardVersion = 'v0.0.3';
     $scope.version = 'v0.0.1'; // will be replaced by HTTP GET /api/version
