@@ -59,8 +59,7 @@ angular.module('ancorDashboardApp')
       }
       var data = $scope.submitData,
           url = 'api/deploy';
-      // $window.alert($scope.submitData);
-      $window.alert('arml conf sent to ancor');
+      $window.alert($scope.submitData);
       $http.post(url, data).success();
     };
   });

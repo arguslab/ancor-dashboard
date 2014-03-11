@@ -71,7 +71,7 @@ angular.module('ancorDashboardApp')
 
     $scope.replaceInstance = function (id) {
       var url = '/v1/instances/' + id,
-          data = { 'replace': true};
+          data = { 'replace': true };
       console.log('replace ' + id);
       $window.alert('Replaced ' + id + '!');
 
