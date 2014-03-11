@@ -26,10 +26,11 @@
   <div ui-ace="{
     mode: 'yaml',
     useWrapMode: true,
-    onLoad: loadConf
+    onLoad: loadConf,
+    onChange: confChange
     }">
   </div></br>
-  <button class='btn btn-info' ng-click="deploy('sup')">Submit to ANCOR</button>
+  <button class='btn btn-info' ng-click="deploy()">Submit to ANCOR</button>
 </div>
 
 <div class="footer">

@@ -21,6 +21,7 @@ angular.module('ancorDashboardApp')
 
     // Load config
     $scope.confData = 'empty';
+    $scope.submitData = '';
 
     var loadConf = function(_editor) {
       $http.get('conf-sample/fullstack.yaml').success(function(data) {
@@ -43,9 +44,23 @@ angular.module('ancorDashboardApp')
       // console.log($scope.confData);
     };
 
+    $scope.confChange = function(e, _editor) {
+      $scope.submitData = _editor.getValue();
+    };
+
     // POST /api/deploy
     // Take given yaml file from dashboard and send to ancor
-    $scope.deploy = function (msg) {
-      $window.alert(msg);
+    //
+    // If no changes have been made, deploy is just
+    // confData
+    $scope.deploy = function () {
+      if ($scope.submitData === '') {
+        $scope.submitData = $scope.confData;
+      }
+      var data = $scope.submitData,
+          url = 'api/deploy';
+      // $window.alert($scope.submitData);
+      $window.alert('arml conf sent to ancor');
+      $http.post(url, data).success();
     };
   });
