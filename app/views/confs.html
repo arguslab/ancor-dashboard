@@ -2,7 +2,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>{{title}}</title>
   <style type="text/css" media="all">
-    .ace_editor { height: 200px; }
+    .ace_editor { height: 400px; }
   </style>
 </head>
 
@@ -23,9 +23,13 @@
   </div>
 
   <h3>Enter a new config</h3>
-  <div ui-ace>
-    
-  </div>
+  <div ui-ace="{
+    mode: 'yaml',
+    useWrapMode: true,
+    onLoad: loadConf
+    }">
+  </div></br>
+  <button class='btn btn-info' ng-click="deploy('sup')">Submit to ANCOR</button>
 </div>
 
 <div class="footer">
