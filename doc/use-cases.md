@@ -41,3 +41,11 @@ Select the `replace` button in the instance table view
 `DELETE /v1/instances/123`
 
 Select the `delete` button in the instance table view
+
+## Configuration Setup
+
+This defines how users will submit arml configs to ancor
+
+### Submit a New Config
+
+Ace Editor

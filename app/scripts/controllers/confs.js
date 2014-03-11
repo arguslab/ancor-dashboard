@@ -17,7 +17,7 @@ angular.module('ancorDashboardApp')
 
     // $scope.data = [{name: 'My Title', contents: 'Contents'}, {name: 'Title 2', contents: 'Woot woot woot'}];
 
-    $scope.data = [{name: 'Loading posts...', contents: ''}];
+    $scope.data = [{name: 'Loading configurations...', contents: ''}];
 
     // Load config
     $scope.confData = 'empty';

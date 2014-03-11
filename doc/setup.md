@@ -17,6 +17,7 @@ $ npm install -g yo
 $ npm install -g generator-angular
 $ bower install angular-ui
 $ npm install grunt-contrib-compass --save-dev
+$ bower install angular-ui-ace\#bower
 $ bundle install
 $ grunt test
 $ grunt serve
