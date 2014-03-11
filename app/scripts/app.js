@@ -5,7 +5,8 @@ angular.module('ancorDashboardApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ui.ace'
 ])
   .config(function ($routeProvider) {
     $routeProvider
