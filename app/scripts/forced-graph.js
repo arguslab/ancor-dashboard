@@ -15,16 +15,16 @@
   // /v1/instances
   function getEdges() {
     var links = [
-      {source: 'Test1', target: 'Test2', type: 'licensing'},
-      {source: 'Test1', target: 'Test3', type: 'licensing'},
-      {source: 'Test3', target: 'Test1', type: 'suit'},
-      {source: 'Test1', target: 'Test2', type: 'suit'},
-      {source: 'Test1', target: 'Test3', type: 'suit'},
-      {source: 'Test1', target: 'Test3', type: 'suit'},
-      {source: 'Test1', target: 'Test2', type: 'suit'},
+      {source: 'Test1', target: 'Test2', type: 'test'},
+      {source: 'Test1', target: 'Test3', type: 'test'},
+      {source: 'Test3', target: 'Test1', type: 'direct'},
+      {source: 'Test1', target: 'Test2', type: 'direct'},
+      {source: 'Test1', target: 'Test3', type: 'direct'},
+      {source: 'Test1', target: 'Test3', type: 'direct'},
+      {source: 'Test1', target: 'Test2', type: 'direct'},
     ];
 
-    var newElem = {source: 'Test5', target: 'Test2', type: 'suit'};
+    var newElem = {source: 'Test5', target: 'Test2', type: 'resolved'};
 
     links.push(newElem);
     return links;
@@ -58,7 +58,7 @@
 
   // Per-type markers, as they don't inherit styles.
   svg.append('defs').selectAll('marker')
-      .data(['suit', 'licensing', 'resolved'])
+      .data(['direct', 'test', 'resolved'])
     .enter().append('marker')
       .attr('id', function(d) { return d; })
       .attr('viewBox', '0 -5 10 10')
