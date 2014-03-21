@@ -40,6 +40,21 @@
       <li><a ng-click="goalTemplate()">goal</a></li>
       <li><a ng-click="roleTemplate()">role</a></li>
     </ul>
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3>An example ARML Configuration</h3>
+        </div>
+        <div class="modal-body">
+          <p>{{helpText}}</p>
+          <p>{{roleInfo}}</p>
+          <pre>{{exampleConf}}</pre>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+        </div>
+    </script>
+
+    <button type="button" class="btn btn-info" ng-click="help()">Help</button>
   </div></br></br>
   <div id="editor" ui-ace="{
     mode: 'yaml',

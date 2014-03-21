@@ -1,7 +1,23 @@
 'use strict';
 
+var ModalInstanceCtrl = function($scope, $modalInstance, $http) {
+  $scope.ok = function () {
+    $modalInstance.close();
+  };
+
+  var loadExampleConf = function() {
+      $http.get('example.yaml').success(function(data) {
+        $scope.exampleConf = data;
+      });
+    };
+
+  $scope.helpText = 'Below is an example of how you should create your config file...';
+  $scope.roleInfo = 'These roles are just examples. The attributes for a given role are different depending on which role you are configuring. Please refer to the documentation for an example of various roles';
+  loadExampleConf();
+};
+
 angular.module('ancorDashboardApp')
-  .controller('ConfsCtrl', function ($scope, $window, $http) {
+  .controller('ConfsCtrl', function ($scope, $window, $http, $modal) {
     // $http.get('ancor-api-sample/instances.json').success(function(data) {
     //   // get current config
     // )};
@@ -14,6 +30,13 @@ angular.module('ancorDashboardApp')
       'AngularJS',
       'Karma'
     ];
+
+    $scope.help = function() {
+      var modalInstance = $modal.open({
+        templateUrl: 'myModalContent.html',
+        controller: ModalInstanceCtrl
+      });
+    };
 
     // $scope.data = [{name: 'My Title', contents: 'Contents'}, {name: 'Title 2', contents: 'Woot woot woot'}];
 

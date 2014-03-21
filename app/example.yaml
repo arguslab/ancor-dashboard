@@ -1,0 +1,27 @@
+# Example Configuration
+
+goals:
+  example_goal:
+    name: TemplateName
+    roles:
+      - exampleRole
+      - exampleRole2
+
+roles:
+  exampleRole:
+    name: TemplateName
+    min: 1
+    exports:
+      - export_example
+      - export_example_two
+    imports:
+      - example_import
+
+  exampleRole2:
+    name: TemplateName2
+    min: 1
+    exports:
+      - export_example
+      - export_example_two
+    imports:
+      - example_import
