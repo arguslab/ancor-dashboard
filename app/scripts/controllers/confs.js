@@ -1,6 +1,6 @@
 'use strict';
 
-var ModalInstanceCtrl = function($scope, $modalInstance, $http) {
+var ConfHelpCtrl = function($scope, $modalInstance, $http) {
   $scope.ok = function () {
     $modalInstance.close();
   };
@@ -33,8 +33,8 @@ angular.module('ancorDashboardApp')
 
     $scope.help = function() {
       var modalInstance = $modal.open({
-        templateUrl: 'myModalContent.html',
-        controller: ModalInstanceCtrl
+        templateUrl: 'confHelp.html',
+        controller: ConfHelpCtrl
       });
     };
 
