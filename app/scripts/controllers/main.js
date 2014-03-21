@@ -1,5 +1,13 @@
 'use strict';
 
+/*
+ *  Controller for view Modal
+ *
+ *  displays various instance information
+ *  depending on which view button the user
+ *  selects from the instance table
+ *
+ */
 var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
   $scope.items = items;
   $scope.selected = {
@@ -17,6 +25,8 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
 
 angular.module('ancorDashboardApp')
   .controller('MainCtrl', function ($scope, $http, $window, $modal, $log, $route) {
+
+    // retrieve instances from ANCOR
     $http.get('ancor-api-sample/instances.json').success(function(data) {
       $scope.instances = data;
       $scope.circles = [];
@@ -28,10 +38,9 @@ angular.module('ancorDashboardApp')
           x = 15,
           y = 20;
 
+      // display different label color depending on
+      // what stage the instance is at
       angular.forEach($scope.instances, function(value){
-        $scope.circles.push({'x':x, 'y':y, 'r':15});
-        x += 50;
-        // y += 20;
         angular.forEach(value, function(v, k){
           // console.log('k: ' + k + '| v: ' + v);
           if (v === 'deploy' && k === 'stage') {
@@ -123,7 +132,7 @@ angular.module('ancorDashboardApp')
       'weblb'
     ];
 
-    // Data
+    // Page Data
     $scope.title = 'ANCOR Index';
     $scope.version = 'v0.0.1'; // will be replaced by HTTP GET /api/version
     $scope.dashboardVersion = 'v0.0.3'; // will be replaced by HTTP GET /api/version
