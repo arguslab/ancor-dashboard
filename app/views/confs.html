@@ -26,9 +26,9 @@
   <form name="myForm">
     <div class="control-group" ng-class="{'has-error': myForm.configInput.$invalid}">
       <label for="confName">ARML Config Name</label>
-      <input type="text" name="configInput" class="form-control" ng-model="confFileName" required>
+      <input type="text" name="configInput" class="form-control" ng-model="confFileName" ng-pattern="confFileValidation" required>
       <span class="error" ng-show="myForm.configInput.$error.required">
-        <h3>Required!</h3>
+        <h3>File Name Required!</h3>
       </span>
     </div>
   </form></br>
@@ -46,6 +46,7 @@
         </div>
         <div class="modal-body">
           <p>{{helpText}}</p>
+          <p><b>{{fileExtHelp}}</b></p>
           <p>{{roleInfo}}</p>
           <pre>{{exampleConf}}</pre>
         </div>

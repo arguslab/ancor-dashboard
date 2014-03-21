@@ -12,6 +12,7 @@ var ConfHelpCtrl = function($scope, $modalInstance, $http) {
     };
 
   $scope.helpText = 'Below is an example of how you should create your config file...';
+  $scope.fileExtHelp = 'Make sure your file has an extension! (i.e. sample.yaml)';
   $scope.roleInfo = 'These roles are just examples. The attributes for a given role are different depending on which role you are configuring. Please refer to the documentation for an example of various roles';
   loadExampleConf();
 };
@@ -46,6 +47,15 @@ angular.module('ancorDashboardApp')
     $scope.confData = 'empty';
     $scope.submitData = '';
 
+    $scope.confFileValidation = (function() {
+      var regexp = /^[\w,\s-]+\.yaml$/;
+      return {
+        test: function(value) {
+            return regexp.test(value);
+        }
+    };
+    })();
+
     var loadConf = function(_editor) {
       $http.get('conf-sample/fullstack.yaml').success(function(data) {
         // var _session = _editor.getSession();
@@ -62,7 +72,7 @@ angular.module('ancorDashboardApp')
 
       _session.setUndoManager(new ace.UndoManager());
 
-      loadConf(_editor);
+      // loadConf(_editor);
       // _editor.setValue($scope.confData);
       // console.log($scope.confData);
     };
