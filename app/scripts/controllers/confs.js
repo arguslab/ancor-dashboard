@@ -6,7 +6,7 @@ angular.module('ancorDashboardApp')
     //   // get current config
     // )};
 
-    $scope.title = 'ANCOR Configurations';
+    $scope.title = 'ANCOR Enviornments';
     $scope.dashboardVersion = 'v0.0.3';
     $scope.version = 'v0.0.1'; // will be replaced by HTTP GET /api/version
     $scope.awesomeThings = [
@@ -19,7 +19,7 @@ angular.module('ancorDashboardApp')
 
     $scope.data = [{name: 'Loading configurations...', contents: ''}];
 
-    // Load config
+    // ARML Load config Methods
     $scope.confData = 'empty';
     $scope.submitData = '';
 
@@ -48,6 +48,26 @@ angular.module('ancorDashboardApp')
       $scope.submitData = _editor.getValue();
     };
 
+    $scope.goalTemplate = function() {
+      var editor = ace.edit('editor'),
+          session = editor.getSession(),
+          msg = 'goals:\n  example_goal:\n\tname: TemplateName\n\troles:\n\t\t- TemplateRole';
+
+      editor.insert(msg);
+      $scope.submitData = editor.getValue();
+    };
+
+    $scope.roleTemplate = function(e, _editor) {
+      var editor = ace.edit('editor'),
+          session = editor.getSession(),
+          msg = '\n\texampleRole:\n\t\tname: TemplateName\n\t\tmin: 1\n\t\texports:\n\t\t\t- export_example\n\t\t\t- export_example_two\n\t\timports:\n\t\t\t- example_import';
+
+      editor.insert(msg);
+      $scope.submitData = editor.getValue();
+    };
+
+    $scope.confFileName = 'newConfiguration.yaml';
+
     // POST /api/deploy
     // Take given yaml file from dashboard and send to ancor
     //
@@ -57,9 +77,17 @@ angular.module('ancorDashboardApp')
       if ($scope.submitData === '') {
         $scope.submitData = $scope.confData;
       }
+
+      if ($scope.confFileName === undefined) {
+        $scope.confFileName = 'blankConfig.yaml';
+      }
+
+      // change url for deployment
+      // /v1/environments/???/$scope.confName
       var data = $scope.submitData,
-          url = 'api/deploy';
-      $window.alert($scope.submitData);
+          url = 'api/deploy/';
+
+      $window.alert('Config File Name: ' + $scope.confFileName + '\n\n' + $scope.submitData);
       $http.post(url, data).success();
     };
   });
