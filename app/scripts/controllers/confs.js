@@ -51,9 +51,9 @@ angular.module('ancorDashboardApp')
       var regexp = /^[\w,\s-]+\.yaml$/;
       return {
         test: function(value) {
-            return regexp.test(value);
+          return regexp.test(value);
         }
-    };
+      };
     })();
 
     var loadConf = function(_editor) {
