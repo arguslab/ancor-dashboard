@@ -34,9 +34,7 @@ angular.module('ancorDashboardApp')
       var numDeployed = 0,
           numUndeployed = 0,
           numErrored = 0,
-          numUndefined = 0,
-          x = 15,
-          y = 20;
+          numUndefined = 0;
 
       // display different label color depending on
       // what stage the instance is at
