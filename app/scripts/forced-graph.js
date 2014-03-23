@@ -15,18 +15,17 @@
   // /v1/instances
   function getEdges() {
     var links = [
-      {source: 'Test1', target: 'Test2', type: 'test'},
-      {source: 'Test1', target: 'Test3', type: 'test'},
-      {source: 'Test3', target: 'Test1', type: 'direct'},
-      {source: 'Test1', target: 'Test2', type: 'direct'},
-      {source: 'Test1', target: 'Test3', type: 'direct'},
-      {source: 'Test1', target: 'Test3', type: 'direct'},
-      {source: 'Test1', target: 'Test2', type: 'direct'},
+      {source: 'web0', target: 'db0', type: 'direct', sid: '123'},
+      {source: 'web0', target: 'weblb0', type: 'test', sid: '123'},
+      {source: 'db0', target: 'web0', type: 'direct', sid: '456'},
+      {source: 'weblb0', target: 'web0', type: 'test', sid: '789'},
     ];
 
-    var newElem = {source: 'Test5', target: 'Test2', type: 'resolved'};
+    var newElem = {source: 'weblb1', target: 'web0', type: 'resolved', sid: '112'},
+        newElem2 = {source: 'web0', target: 'weblb1', type: 'resolved', sid: '123'};
 
     links.push(newElem);
+    links.push(newElem2);
     return links;
   }
 
@@ -34,20 +33,21 @@
   var links = getEdges(),
       nodes = {};
 
+
   // Compute the distinct nodes from the links.
   links.forEach(function(link) {
     link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
     link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
   });
 
-  var width = 460,
-      height = 300;
+  var width = 660,
+      height = 350;
 
   var force = d3.layout.force()
       .nodes(d3.values(nodes))
       .links(links)
       .size([width, height])
-      .linkDistance(60)
+      .linkDistance(210)
       .charge(-300)
       .on('tick', tick)
       .start();
@@ -79,18 +79,30 @@
   var circle = svg.append('g').selectAll('circle')
       .data(force.nodes())
     .enter().append('circle')
-      .attr('r', 6)
+      .attr('r', 20)
       .call(force.drag);
 
+  function returnLinkId(name) {
+    for (var elem in links) {
+      console.log(links[elem]);
+      if (links[elem].source.name === name) {
+        return links[elem].sid;
+      }
+    }
+  }
+
   // alert user to node name on click
+  //
   circle.on('click', function(d) {
-    alert(d.name);
+    // console.log(links[d.name]);
+    var sourceId = returnLinkId(d.name);
+    alert('Node Name: ' + d.name + '\nNode ID: ' + sourceId);
   });
 
   var text = svg.append('g').selectAll('text')
       .data(force.nodes())
     .enter().append('text')
-      .attr('x', 8)
+      .attr('x', 25)
       .attr('y', '.31em')
       .text(function(d) { return d.name; });
 

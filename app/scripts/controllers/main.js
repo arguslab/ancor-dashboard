@@ -48,9 +48,9 @@ angular.module('ancorDashboardApp')
           } else if (v === 'undefined' && k === 'stage') {
             numUndefined++;
           } else if (v === 'undeployed' && k === 'stage') {
-            numErrored++;
+            numUndeployed++;
           } else if (v === 'error' && k === 'stage') {
-            numUndefined++;
+            numErrored++;
           }
 
           // do checks for plannedStage here

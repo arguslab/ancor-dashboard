@@ -3,21 +3,21 @@
   <style type="text/css">
     #directedNetworkContainer {
       width: 752px;
-      height: 452px;
+      height: 352px;
       border: 1px solid lightgray;
     }
 
     path.link {
       fill: none;
       stroke: #666;
-      stroke-width: 1.5px;
+      stroke-width: 2.5px;
     }
 
-    marker#licensing {
+    marker#direct {
       fill: green;
     }
 
-    path.link.licensing {
+    path.link.direct {
       stroke: green;
     }
 
@@ -54,10 +54,6 @@
   <h3 class="text-muted">ancor ({{version}}) dashboard </h3>
 </div>
 
-<div class="jumbotron">
-  <h2>Instance Overview</h2>
-</div>
-
 <div class="row text-center">
   <div class="col-md-4">
     <h1 class="text-primary" style="font-size: 60px;">{{totalInstances}}</h1> Instances
@@ -83,6 +79,7 @@
 
 <div class="row marketing">
   <div class="row">
+    <div id="forceGraph" class="text-center"></div>
     <h4>Instance State Details</h4>
     <!-- <div class="col-md-9"> -->
       <div class="btn-group">
@@ -164,14 +161,6 @@
 
   </div>
 
-  <h4>Environments</h4>
-
-  <h4>Goals</h4>
-
-  <h4>Tasks</h4>
-
-  <h4>Instance Graphs</h4>
-  <div id="forceGraph"></div>
 </div>
 
 <div class="footer">

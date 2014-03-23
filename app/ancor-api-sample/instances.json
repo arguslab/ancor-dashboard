@@ -19,5 +19,12 @@
     "stage": "deploy",
     "plannedStage": "deploy",
     "interfaces": ["10.128.144.30"]
+  },
+  {
+    "id": "528527464c9be8da23000004",
+    "name": "weblb1",
+    "stage": "undeployed",
+    "plannedStage": "deploy",
+    "interfaces": ["10.128.144.40"]
   }
 ]
