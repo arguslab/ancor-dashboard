@@ -37,6 +37,7 @@
       <ul class="nav nav-sidebar">
         <li><a href="/">Overview</a></li>
         <li class="active"><a href="#/confs">Enviornments</a></li>
+        <li><a href="#/deploy">Deploy</a></li>
         <li><a href="#">Analytics</a></li>
         <li><a href="#">Export</a></li>
       </ul>
@@ -48,51 +49,6 @@
           <h2><a>{{conf.name}}</a></h2>
           <p>{{conf.contents}}</p>
         </div>
-
-        <!-- move this to new controller -->
-        <h3>Enter a new config</h3>
-        <form name="myForm">
-          <div class="control-group" ng-class="{'has-error': myForm.configInput.$invalid}">
-            <label for="confName">ARML Config Name</label>
-            <input type="text" name="configInput" class="form-control" ng-model="confFileName" ng-pattern="confFileValidation" required>
-            <span class="error" ng-show="myForm.configInput.$error.required">
-              <h3>File Name Required!</h3>
-            </span>
-          </div>
-        </form></br>
-        <div class="btn-group">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            Add template <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu" >
-            <li><a ng-click="goalTemplate()">goal</a></li>
-            <li><a ng-click="roleTemplate()">role</a></li>
-          </ul>
-          <script type="text/ng-template" id="confHelp.html">
-              <div class="modal-header">
-                  <h3>An example ARML Configuration</h3>
-              </div>
-              <div class="modal-body">
-                <p>{{helpText}}</p>
-                <p><b>{{fileExtHelp}}</b></p>
-                <p>{{roleInfo}}</p>
-                <pre>{{exampleConf}}</pre>
-              </div>
-              <div class="modal-footer">
-                  <button class="btn btn-primary" ng-click="ok()">OK</button>
-              </div>
-          </script>
-
-          <button type="button" class="btn btn-info" ng-click="help()">Help</button>
-        </div></br></br>
-        <div id="editor" ui-ace="{
-          mode: 'yaml',
-          useWrapMode: true,
-          onLoad: loadConf,
-          onChange: confChange
-          }">
-        </div></br>
-        <button class='btn btn-info' type="submit" ng-click="deploy()">Submit to ANCOR</button>
       </div>
     </div>
   </div>
