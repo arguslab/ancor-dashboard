@@ -19,6 +19,7 @@
       {source: 'web0', target: 'weblb0', type: 'test', sid: '123'},
       {source: 'db0', target: 'web0', type: 'direct', sid: '456'},
       {source: 'weblb0', target: 'web0', type: 'test', sid: '789'},
+      {source: 'db1', target: 'db1', type: 'direct', sid: '999'},
     ];
 
     var newElem = {source: 'weblb1', target: 'web0', type: 'resolved', sid: '112'},

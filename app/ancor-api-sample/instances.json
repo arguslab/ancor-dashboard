@@ -26,5 +26,12 @@
     "stage": "undeployed",
     "plannedStage": "deploy",
     "interfaces": ["10.128.144.40"]
+  },
+  {
+    "id": "528527464c9be8da23000005",
+    "name": "db1",
+    "stage": "error",
+    "plannedStage": "deploy",
+    "interfaces": ["10.128.144.50"]
   }
 ]
