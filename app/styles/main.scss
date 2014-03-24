@@ -17,9 +17,13 @@ body {
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
-.marketing,
-.footer {
+.marketing{
     padding-left: 15px;
+    padding-right: 15px;
+}
+
+.footer {
+    padding-left: 225px;
     padding-right: 15px;
 }
 
@@ -68,7 +72,7 @@ body {
 }
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1368px) {
     .container {
         max-width: 730px;
     }
