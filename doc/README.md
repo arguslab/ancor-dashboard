@@ -8,6 +8,10 @@ To launch the project, type the following:
 
 And grunt should take care of the rest...assuming you have all the dependencies.
 
+# ANCOR Project
+
+This project is built to interact with [ANCOR](https://github.com/arguslab/ancor)
+
 ## Frameworks
 
 Here are the various frameworks used for this project:
