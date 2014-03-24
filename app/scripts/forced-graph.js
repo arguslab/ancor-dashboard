@@ -97,7 +97,7 @@
   circle.on('click', function(d) {
     // console.log(links[d.name]);
     var sourceId = returnLinkId(d.name);
-    alert('Node Name: ' + d.name + '\nNode ID: ' + sourceId);
+    window.alert('Node Name: ' + d.name + '\nNode ID: ' + sourceId);
   });
 
   var text = svg.append('g').selectAll('text')
@@ -123,8 +123,8 @@
   // on initial load
   var k = 0;
   while ((force.alpha() > 1e-2) && (k < 150)) {
-    force.tick(),
-    k = k + 1;
+    force.tick();
+    k++;
   }
 
 })();
