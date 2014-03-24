@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ancorDashboardApp', [
+var app = angular.module('ancorDashboardApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
@@ -26,3 +26,7 @@ angular.module('ancorDashboardApp', [
         redirectTo: '/'
       });
   });
+
+app.run(function ($rootScope) {
+  $rootScope.adVersion = 'v0.0.3';
+});

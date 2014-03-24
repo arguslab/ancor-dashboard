@@ -127,6 +127,7 @@
             <th>Name</th>
             <th>Interface</th>
             <th>Stage</th>
+            <th>Planned Stage</th>
             <th>More Info</th>
             <th>Operations</th>
           </tr>
@@ -146,6 +147,18 @@
             </td>
             <td ng-if="instance.stage == 'error'">
               <span class="label label-danger">{{instance.stage}}</span>
+            </td>
+            <td ng-if="instance.plannedStage == 'undefined'">
+              <span class="label label-warning">{{instance.plannedStage}}</span>
+            </td>
+            <td ng-if="instance.plannedStage == 'deploy'">
+              <span class="label label-success">{{instance.plannedStage}}</span>
+            </td>
+            <td ng-if="instance.plannedStage == 'undeployed'">
+              <span class="label label-success">{{instance.plannedStage}}</span>
+            </td>
+            <td ng-if="instance.plannedStage == 'error'">
+              <span class="label label-danger">{{instance.plannedStage}}</span>
             </td>
             <td>
               <div ng-controller="MainCtrl">
@@ -190,7 +203,7 @@
 </div>
 
 <div class="footer">
-  <p>ancor-dashboard {{dashboardVersion}} | Kansas State University | Brian Cain 2014</p>
+  <p>ancor-dashboard {{adVersion}} | Kansas State University | Brian Cain 2014</p>
 </div>
 
 <script src="bower_components/d3/d3.js"></script>

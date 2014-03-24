@@ -34,7 +34,11 @@ angular.module('ancorDashboardApp')
       var numDeployed = 0,
           numUndeployed = 0,
           numErrored = 0,
-          numUndefined = 0;
+          numUndefined = 0,
+          numPlanDeployed = 0,
+          numPlanUndeployed = 0,
+          numPlanErrored = 0,
+          numPlanUndefined = 0;
 
       // display different label color depending on
       // what stage the instance is at
@@ -53,6 +57,15 @@ angular.module('ancorDashboardApp')
 
           // do checks for plannedStage here
           //
+          if (v === 'deploy' && k === 'plannedStage') {
+            numPlanDeployed++;
+          } else if (v === 'undefined' && k === 'plannedStage') {
+            numPlanUndefined++;
+          } else if (v === 'undeployed' && k === 'plannedStage') {
+            numPlanUndeployed++;
+          } else if (v === 'error' && k === 'plannedStage') {
+            numPlanErrored++;
+          }
         });
       });
 
@@ -60,6 +73,11 @@ angular.module('ancorDashboardApp')
       $scope.totalUndefined = numUndefined;
       $scope.totalUndeployed = numUndeployed;
       $scope.totalErrored = numErrored;
+      $scope.totalPlanDeployed = numPlanDeployed;
+      $scope.totalPlanUndefined = numPlanUndefined;
+      $scope.totalPlanUndeployed = numPlanUndeployed;
+      $scope.totalPlanErrored = numPlanErrored;
+
       $scope.totalInstances = $scope.instances.length;
     });
 
@@ -116,13 +134,6 @@ angular.module('ancorDashboardApp')
       });
     };
 
-    $scope.graph = {'width': 400, 'height': 100};
-    // $scope.circles = [
-    //   {'x': 15, 'y':20, 'r':15},
-    //   {'x': 50, 'y':60, 'r':20},
-    //   {'x': 80, 'y':15, 'r':15},
-    // ];
-
     // roles to be replaced with http get
     $scope.roles = [
       'web',
@@ -133,7 +144,6 @@ angular.module('ancorDashboardApp')
     // Page Data
     $scope.title = 'ANCOR Index';
     $scope.version = 'v0.0.1'; // will be replaced by HTTP GET /api/version
-    $scope.dashboardVersion = 'v0.0.3'; // will be replaced by HTTP GET /api/version
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

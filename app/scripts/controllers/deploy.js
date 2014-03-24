@@ -35,7 +35,6 @@ angular.module('ancorDashboardApp')
     ];
 
     $scope.title = 'ANCOR Enviornments';
-    $scope.dashboardVersion = 'v0.0.3';
     $scope.version = 'v0.0.1'; // will be replaced by HTTP GET /api/version
 
     // function used when help button is clicked
