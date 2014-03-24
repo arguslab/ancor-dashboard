@@ -6,65 +6,96 @@
   </style>
 </head>
 
-<div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li><a ng-href="/">Home</a></li>
-    <li class="active"><a ng-href="#/confs">Enviornments</a></li>
-    <li><a ng-href="#">Contact</a></li>
-  </ul>
-  <h3 class="text-muted">ancor ({{version}}) dashboard </h3>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">ANCOR {{version}} Dashboard</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/">Dashboard</a></li>
+        <li class="active"><a href="#/confs">Enviornments</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+      <form class="navbar-form navbar-right">
+        <input type="text" class="form-control" placeholder="Search...">
+      </form>
+    </div>
+  </div>
 </div>
 
-<div class="row marketing">
-  <h1>{{title}}</h1>
-  <div ng-repeat="conf in data">
-    <h2><a>{{conf.name}}</a></h2>
-    <p>{{conf.contents}}</p>
-  </div>
-
-  <h3>Enter a new config</h3>
-  <form name="myForm">
-    <div class="control-group" ng-class="{'has-error': myForm.configInput.$invalid}">
-      <label for="confName">ARML Config Name</label>
-      <input type="text" name="configInput" class="form-control" ng-model="confFileName" ng-pattern="confFileValidation" required>
-      <span class="error" ng-show="myForm.configInput.$error.required">
-        <h3>File Name Required!</h3>
-      </span>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+      <ul class="nav nav-sidebar">
+        <li><a href="/">Overview</a></li>
+        <li class="active"><a href="#/confs">Enviornments</a></li>
+        <li><a href="#">Analytics</a></li>
+        <li><a href="#">Export</a></li>
+      </ul>
     </div>
-  </form></br>
-  <div class="btn-group">
-    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-      Add template <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" role="menu" >
-      <li><a ng-click="goalTemplate()">goal</a></li>
-      <li><a ng-click="roleTemplate()">role</a></li>
-    </ul>
-    <script type="text/ng-template" id="confHelp.html">
-        <div class="modal-header">
-            <h3>An example ARML Configuration</h3>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <div class="row marketing">
+        <h1>{{title}}</h1>
+        <div ng-repeat="conf in data">
+          <h2><a>{{conf.name}}</a></h2>
+          <p>{{conf.contents}}</p>
         </div>
-        <div class="modal-body">
-          <p>{{helpText}}</p>
-          <p><b>{{fileExtHelp}}</b></p>
-          <p>{{roleInfo}}</p>
-          <pre>{{exampleConf}}</pre>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" ng-click="ok()">OK</button>
-        </div>
-    </script>
 
-    <button type="button" class="btn btn-info" ng-click="help()">Help</button>
-  </div></br></br>
-  <div id="editor" ui-ace="{
-    mode: 'yaml',
-    useWrapMode: true,
-    onLoad: loadConf,
-    onChange: confChange
-    }">
-  </div></br>
-  <button class='btn btn-info' type="submit" ng-click="deploy()">Submit to ANCOR</button>
+        <!-- move this to new controller -->
+        <h3>Enter a new config</h3>
+        <form name="myForm">
+          <div class="control-group" ng-class="{'has-error': myForm.configInput.$invalid}">
+            <label for="confName">ARML Config Name</label>
+            <input type="text" name="configInput" class="form-control" ng-model="confFileName" ng-pattern="confFileValidation" required>
+            <span class="error" ng-show="myForm.configInput.$error.required">
+              <h3>File Name Required!</h3>
+            </span>
+          </div>
+        </form></br>
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Add template <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" >
+            <li><a ng-click="goalTemplate()">goal</a></li>
+            <li><a ng-click="roleTemplate()">role</a></li>
+          </ul>
+          <script type="text/ng-template" id="confHelp.html">
+              <div class="modal-header">
+                  <h3>An example ARML Configuration</h3>
+              </div>
+              <div class="modal-body">
+                <p>{{helpText}}</p>
+                <p><b>{{fileExtHelp}}</b></p>
+                <p>{{roleInfo}}</p>
+                <pre>{{exampleConf}}</pre>
+              </div>
+              <div class="modal-footer">
+                  <button class="btn btn-primary" ng-click="ok()">OK</button>
+              </div>
+          </script>
+
+          <button type="button" class="btn btn-info" ng-click="help()">Help</button>
+        </div></br></br>
+        <div id="editor" ui-ace="{
+          mode: 'yaml',
+          useWrapMode: true,
+          onLoad: loadConf,
+          onChange: confChange
+          }">
+        </div></br>
+        <button class='btn btn-info' type="submit" ng-click="deploy()">Submit to ANCOR</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="footer">

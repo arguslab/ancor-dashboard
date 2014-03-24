@@ -41,47 +41,77 @@
       stroke-width: 3px;
       stroke-opacity: .8;
     }
+
   </style>
   <title>{{title}}</title>
 </head>
 
-<div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="/">Home</a></li>
-    <li><a ng-href="#/confs">Environments</a></li>
-    <li><a ng-href="#">Contact</a></li>
-  </ul>
-  <h3 class="text-muted">ancor ({{version}}) dashboard </h3>
-</div>
-
-<div class="row text-center">
-  <div class="col-md-4">
-    <h1 class="text-primary" style="font-size: 60px;">{{totalInstances}}</h1> Instances
-  </div>
-  <div class="col-md-4">
-    <h1 class="text-success">{{totalDeployed}}</h1> Deployed
-  </div>
-  <div class="col-md-4">
-    <h1 class="text-warning">{{totalUndefined}}</h1> Undefined
-  </div>
-</div>
-
-<div class="row text-center">
-  <div class="col-md-4">
-  </div>
-  <div class="col-md-4">
-    <h1 class="text-success">{{totalUndeployed}}</h1> Undeployed
-  </div>
-  <div class="col-md-4">
-    <h1 class="text-danger">{{totalErrored}}</h1> Error
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">ANCOR {{version}} Dashboard</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="/">Dashboard</a></li>
+        <li><a href="#/confs">Enviornments</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+      <form class="navbar-form navbar-right">
+        <input type="text" class="form-control" placeholder="Search...">
+      </form>
+    </div>
   </div>
 </div>
 
-<div class="row marketing">
+<div class="container-fluid">
   <div class="row">
-    <div id="forceGraph" class="text-center"></div>
-    <h4>Instance State Details</h4>
-    <!-- <div class="col-md-9"> -->
+    <div class="col-sm-3 col-md-2 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class="active"><a href="/">Overview</a></li>
+        <li><a href="#/confs">Enviornments</a></li>
+        <li><a href="#">Analytics</a></li>
+        <li><a href="#">Export</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <h1 class="page-header">Instance Overview</h1>
+
+      <div class="row placeholders">
+        <div class="row text-center">
+          <div class="col-md-4">
+            <h1 class="text-primary" style="font-size: 60px;">{{totalInstances}}</h1> Instances
+          </div>
+          <div class="col-md-4">
+            <h1 class="text-success">{{totalDeployed}}</h1> Deployed
+          </div>
+          <div class="col-md-4">
+            <h1 class="text-warning">{{totalUndefined}}</h1> Undefined
+          </div>
+        </div>
+
+        <div class="row text-center">
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4">
+            <h1 class="text-success">{{totalUndeployed}}</h1> Undeployed
+          </div>
+          <div class="col-md-4">
+            <h1 class="text-danger">{{totalErrored}}</h1> Error
+          </div>
+        </div>
+      </div>
+
+      <div id="forceGraph" class="text-center"></div>
+      <h4>Instance State Details</h4>
+      <!-- <div class="col-md-9"> -->
       <div class="btn-group">
         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
           Add New Instance <span class="caret"></span>
@@ -154,13 +184,8 @@
           </tr>
         </tbody>
       </table>
-    <!-- </div> -->
-    <div class="col-md-5">
-      <!-- <div id="instanceChart">D3 Chart Goes Here</div> -->
     </div>
-
   </div>
-
 </div>
 
 <div class="footer">
