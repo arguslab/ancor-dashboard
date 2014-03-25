@@ -6,5 +6,10 @@ angular.module('ancorDashboardApp')
       $scope.version = data.version;
     });
 
+
+    $http.get($rootScope.ancorIPAddress+'/v1/tasks').success(function(data) {
+      $scope.tasks = data;
+    });
+
     $scope.title = 'ANCOR Tasks';
   });

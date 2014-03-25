@@ -96,6 +96,20 @@ angular.module('ancorDashboardApp')
       $scope.totalInstances = $scope.instances.length;
     });
 
+    // Define custom entries for instance table view
+    $scope.instanceColumnEntries = [
+      'Name',
+      'Interface',
+      'Stage',
+      'Planned Stage',
+      'More Info',
+      'Operations'
+    ];
+
+    // sortable functions
+    $scope.orderByField = 'name';
+    $scope.reverseSort = false;
+
     // GET api/instances/x
     // Query ancor for specific instance for detailed view
     // Will be invoked when instance is clicked on the table
