@@ -28,5 +28,6 @@ var app = angular.module('ancorDashboardApp', [
   });
 
 app.run(function ($rootScope) {
-  $rootScope.adVersion = 'v0.0.3';
+  $rootScope.adVersion = 'v0.0.3'; // ancor-dashboard version
+  $rootScope.ancorIPAddress = 'http://172.17.0.55:3000'; // ip_address of ANCOR project
 });

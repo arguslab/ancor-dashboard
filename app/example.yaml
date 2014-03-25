@@ -2,14 +2,14 @@
 
 goals:
   example_goal:
-    name: TemplateName
+    name: Template Name
     roles:
-      - exampleRole
-      - exampleRole2
+      - example_role
+      - example_role2
 
 roles:
-  exampleRole:
-    name: TemplateName
+  example_role:
+    name: Template Name
     min: 1
     exports:
       - export_example
@@ -17,8 +17,8 @@ roles:
     imports:
       - example_import
 
-  exampleRole2:
-    name: TemplateName2
+  example_role2:
+    name: Template Name2
     min: 1
     exports:
       - export_example

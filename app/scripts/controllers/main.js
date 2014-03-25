@@ -24,12 +24,27 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
 };
 
 angular.module('ancorDashboardApp')
-  .controller('MainCtrl', function ($scope, $http, $window, $modal, $log, $route) {
+  .controller('MainCtrl', function ($scope, $rootScope, $http, $window, $modal, $log, $route) {
+
+    $http.get($rootScope.ancorIPAddress+'/v1').success(function(data) {
+      $scope.version = data.version;
+    });
+
+    $http.get($rootScope.ancorIPAddress+'/v1/goals').success(function(data) {
+      $scope.goalName = data[0].name;
+    });
+
+    $http.get($rootScope.ancorIPAddress+'/v1/roles').success(function(data) {
+      $scope.fullRoles = data;
+      $scope.roles = [];
+      angular.forEach(data, function(value) {
+        $scope.roles.push(value.slug);
+      });
+    });
 
     // retrieve instances from ANCOR
-    $http.get('ancor-api-sample/instances.json').success(function(data) {
+    $http.get($rootScope.ancorIPAddress+'/v1/instances').success(function(data) {
       $scope.instances = data;
-      $scope.circles = [];
 
       var numDeployed = 0,
           numUndeployed = 0,
@@ -55,15 +70,15 @@ angular.module('ancorDashboardApp')
             numErrored++;
           }
 
-          // do checks for plannedStage here
+          // do checks for planned_stage here
           //
-          if (v === 'deploy' && k === 'plannedStage') {
+          if (v === 'deploy' && k === 'planned_stage') {
             numPlanDeployed++;
-          } else if (v === 'undefined' && k === 'plannedStage') {
+          } else if (v === 'undefined' && k === 'planned_stage') {
             numPlanUndefined++;
-          } else if (v === 'undeployed' && k === 'plannedStage') {
+          } else if (v === 'undeployed' && k === 'planned_stage') {
             numPlanUndeployed++;
-          } else if (v === 'error' && k === 'plannedStage') {
+          } else if (v === 'error' && k === 'planned_stage') {
             numPlanErrored++;
           }
         });
@@ -88,11 +103,10 @@ angular.module('ancorDashboardApp')
     // Will be able to take id from given msg to do
     // http get call on specific instance for more info
     //
-    // Look up info on angularjs generating modal views on TWBS
-    $scope.sendAlert = function (msg) {
-      var str = 'id: ' + msg.id + '\nname:' + msg.name + '\ninterface: ' + msg.interfaces + '\nstage: ' + msg.stage + '\nplannedStage: ' + msg.plannedStage;
-      $window.alert(str);
-    };
+    // $scope.sendAlert = function (msg) {
+    //   var str = 'id: ' + msg.id + '\nname:' + msg.name + '\ninterface: ' + msg.interfaces + '\nstage: ' + msg.stage + '\nplanned_stage: ' + msg.planned_stage;
+    //   $window.alert(str);
+    // };
 
     $scope.replaceInstance = function (id) {
       var url = '/v1/instances/' + id,
@@ -134,16 +148,10 @@ angular.module('ancorDashboardApp')
       });
     };
 
-    // roles to be replaced with http get
-    $scope.roles = [
-      'web',
-      'db',
-      'weblb'
-    ];
-
     // Page Data
     $scope.title = 'ANCOR Index';
-    $scope.version = 'v0.0.1'; // will be replaced by HTTP GET /api/version
+
+    // $scope.version = 'v0.0.1'; // will be replaced by HTTP GET /api/version
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

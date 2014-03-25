@@ -78,13 +78,13 @@
       <ul class="nav nav-sidebar">
         <li class="active"><a href="/">Overview</a></li>
         <li><a href="#/confs">Enviornments</a></li>
+        <li><a href="#">Tasks</a></li>
         <li><a href="#/deploy">Deploy</a></li>
         <li><a href="#">Nav 4</a></li>
-        <li><a href="#">Nav 5</a></li>
       </ul>
     </div>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-      <h1 class="page-header">Instance Overview</h1>
+      <h1 class="page-header">{{goalName}} Overview</h1>
 
       <div class="row placeholders">
         <div class="row text-center">
@@ -149,17 +149,17 @@
             <td ng-if="instance.stage == 'error'">
               <span class="label label-danger">{{instance.stage}}</span>
             </td>
-            <td ng-if="instance.plannedStage == 'undefined'">
-              <span class="label label-warning">{{instance.plannedStage}}</span>
+            <td ng-if="instance.planned_stage == 'undefined'">
+              <span class="label label-warning">{{instance.planned_stage}}</span>
             </td>
-            <td ng-if="instance.plannedStage == 'deploy'">
-              <span class="label label-success">{{instance.plannedStage}}</span>
+            <td ng-if="instance.planned_stage == 'deploy'">
+              <span class="label label-success">{{instance.planned_stage}}</span>
             </td>
-            <td ng-if="instance.plannedStage == 'undeployed'">
-              <span class="label label-success">{{instance.plannedStage}}</span>
+            <td ng-if="instance.planned_stage == 'undeployed'">
+              <span class="label label-success">{{instance.planned_stage}}</span>
             </td>
-            <td ng-if="instance.plannedStage == 'error'">
-              <span class="label label-danger">{{instance.plannedStage}}</span>
+            <td ng-if="instance.planned_stage == 'error'">
+              <span class="label label-danger">{{instance.planned_stage}}</span>
             </td>
             <td>
               <div ng-controller="MainCtrl">

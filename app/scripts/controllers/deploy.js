@@ -27,15 +27,20 @@ var ConfHelpCtrl = function($scope, $modalInstance, $http) {
 };
 
 angular.module('ancorDashboardApp')
-  .controller('DeployCtrl', function ($scope, $window, $http, $modal) {
+  .controller('DeployCtrl', function ($scope, $rootScope, $window, $http, $modal) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
 
+
+    $http.get($rootScope.ancorIPAddress+'/v1').success(function(data) {
+      $scope.version = data.version;
+    });
+
     $scope.title = 'ANCOR Enviornments';
-    $scope.version = 'v0.0.1'; // will be replaced by HTTP GET /api/version
+    // $scope.version = 'v0.0.1'; // will be replaced by HTTP GET /api/version
 
     // function used when help button is clicked
     //
@@ -98,7 +103,7 @@ angular.module('ancorDashboardApp')
     $scope.goalTemplate = function() {
       var editor = ace.edit('editor'),
           session = editor.getSession(),
-          msg = 'goals:\n  example_goal:\n\tname: TemplateName\n\troles:\n\t\t- TemplateRole';
+          msg = 'goals:\n  example_goal:\n\tname: Template Name\n\troles:\n\t\t- template_role';
 
       editor.insert(msg);
       $scope.submitData = editor.getValue();
@@ -109,7 +114,7 @@ angular.module('ancorDashboardApp')
     $scope.roleTemplate = function(e, _editor) {
       var editor = ace.edit('editor'),
           session = editor.getSession(),
-          msg = '\n\texampleRole:\n\t\tname: TemplateName\n\t\tmin: 1\n\t\texports:\n\t\t\t- export_example\n\t\t\t- export_example_two\n\t\timports:\n\t\t\t- example_import';
+          msg = '\n\texample_role:\n\t\tname: Template Name\n\t\tmin: 1\n\t\texports:\n\t\t\t- export_example\n\t\t\t- export_example_two\n\t\timports:\n\t\t\t- example_import';
 
       editor.insert(msg);
       $scope.submitData = editor.getValue();

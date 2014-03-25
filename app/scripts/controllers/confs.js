@@ -1,13 +1,21 @@
 'use strict';
 
 angular.module('ancorDashboardApp')
-  .controller('ConfsCtrl', function ($scope) {
+  .controller('ConfsCtrl', function ($scope, $rootScope, $http) {
     // $http.get('ancor-api-sample/instances.json').success(function(data) {
     //   // get current config
     // )};
 
+    $http.get($rootScope.ancorIPAddress+'/v1').success(function(data) {
+      $scope.version = data.version;
+    });
+
+    $http.get($rootScope.ancorIPAddress+'/v1/environments').success(function(data) {
+      $scope.env = data;
+    });
+
     $scope.title = 'ANCOR Enviornments';
-    $scope.version = 'v0.0.1'; // will be replaced by HTTP GET /api/version
+    // $scope.version = 'v0.0.1'; // will be replaced by HTTP GET /api/version
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
