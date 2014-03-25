@@ -103,7 +103,7 @@ angular.module('ancorDashboardApp')
     $scope.goalTemplate = function() {
       var editor = ace.edit('editor'),
           session = editor.getSession(),
-          msg = 'goals:\n  example_goal:\n\tname: Template Name\n\troles:\n\t\t- template_role';
+          msg = 'goals:\n  example_goal:\n  name: Template Name\n  roles:\n    - template_role';
 
       editor.insert(msg);
       $scope.submitData = editor.getValue();
@@ -114,7 +114,7 @@ angular.module('ancorDashboardApp')
     $scope.roleTemplate = function(e, _editor) {
       var editor = ace.edit('editor'),
           session = editor.getSession(),
-          msg = '\n\texample_role:\n\t\tname: Template Name\n\t\tmin: 1\n\t\texports:\n\t\t\t- export_example\n\t\t\t- export_example_two\n\t\timports:\n\t\t\t- example_import';
+          msg = '\n  example_role:\n    name: Template Name\n    min: 1\n    exports:\n      - export_example\n      - export_example_two\n    imports:\n      - example_import';
 
       editor.insert(msg);
       $scope.submitData = editor.getValue();
