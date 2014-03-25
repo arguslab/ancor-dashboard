@@ -39,7 +39,7 @@ angular.module('ancorDashboardApp')
       $scope.version = data.version;
     });
 
-    $scope.title = 'ANCOR Enviornments';
+    $scope.title = 'ANCOR Deploy';
     // $scope.version = 'v0.0.1'; // will be replaced by HTTP GET /api/version
 
     // function used when help button is clicked

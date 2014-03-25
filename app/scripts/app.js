@@ -22,6 +22,10 @@ var app = angular.module('ancorDashboardApp', [
         templateUrl: 'views/deploy.html',
         controller: 'DeployCtrl'
       })
+      .when('/tasks', {
+        templateUrl: 'views/tasks.html',
+        controller: 'TasksCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
