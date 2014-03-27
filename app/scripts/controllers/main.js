@@ -123,7 +123,7 @@ angular.module('ancorDashboardApp')
     // };
 
     $scope.replaceInstance = function (id) {
-      var url = '/v1/instances/' + id,
+      var url = $rootScope.ancorIPAddress+'/v1/instances/' + id,
           data = { 'replace': true };
       console.log('replace ' + id);
       $window.alert('Replaced ' + id + '!');
@@ -133,7 +133,7 @@ angular.module('ancorDashboardApp')
     };
 
     $scope.deleteInstance = function (id) {
-      var url = '/v1/instances/' + id;
+      var url = $rootScope.ancorIPAddress+'/v1/instances/' + id;
       console.log('delete ' + id);
       $window.alert('Deleted ' + id + '!');
 
