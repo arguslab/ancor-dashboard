@@ -20,7 +20,7 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/">Dashboard</a></li>
-        <li class="active"><a href="#/confs">Enviornments</a></li>
+        <li class="active"><a href="#/confs">Environments</a></li>
         <li><a href="#">Profile</a></li>
         <li><a href="https://github.com/arguslab/ancor-dashboard/tree/master/doc">Help</a></li>
       </ul>
@@ -36,7 +36,7 @@
     <div class="col-sm-3 col-md-2 sidebar">
       <ul class="nav nav-sidebar">
         <li><a href="/">Overview</a></li>
-        <li class="active"><a href="#/confs">Enviornments</a></li>
+        <li class="active"><a href="#/confs">Environments</a></li>
         <li><a href="#/tasks">Tasks</a></li>
         <li><a href="#/deploy">Deploy</a></li>
       </ul>
@@ -46,16 +46,17 @@
         <h1 class="page-header">{{title}}</h1>
         <table class="table table-hover">
           <thead>
-            <tr ng-repeat="data in env">
-              <th ng-repeat="(key,node) in data">{{key}}</th>
+            <tr>
+              <th ng-repeat="key in keys">{{key}}</th>
             </tr>
           </thead>
           <tbody>
             <tr ng-repeat="data in env">
-              <td ng-repeat="(key,node) in data">
-                <p ng-if="node != null">{{node}}</p>
-                <p ng-if="node === null">null</p>
-              </td>
+              <td>{{data.id}}</td>
+              <td>{{data.slug}}</td>
+              <td>{{data.name}}</td>
+              <td>{{data.description}}</td>
+              <td>{{data.locked}}</td>
             </tr>
           </tbody>
         </table>

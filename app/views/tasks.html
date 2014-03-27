@@ -20,7 +20,7 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/">Dashboard</a></li>
-        <li><a href="#/confs">Enviornments</a></li>
+        <li><a href="#/confs">Environment</a></li>
         <li><a href="#">Profile</a></li>
         <li><a href="https://github.com/arguslab/ancor-dashboard/tree/master/doc">Help</a></li>
       </ul>
@@ -36,7 +36,7 @@
     <div class="col-sm-3 col-md-2 sidebar">
       <ul class="nav nav-sidebar">
         <li><a href="/">Overview</a></li>
-        <li><a href="#/confs">Enviornments</a></li>
+        <li><a href="#/confs">Environment</a></li>
         <li class="active"><a href="#/tasks">Tasks</a></li>
         <li><a href="#/deploy">Deploy</a></li>
       </ul>
@@ -44,6 +44,23 @@
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
       <div class="row marketing">
         <h1 class="page-header">{{title}}</h1>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="key in keys">{{key}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="task in tasks | orderBy:predicate:reverse">
+              <td>{{task.id}}</td>
+              <td>{{task.type}}</td>
+              <td>args</td>
+              <td>{{task.state}}</td>
+              <td>{{task.created_at}}</td>
+              <td>{{task.updated_at}}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

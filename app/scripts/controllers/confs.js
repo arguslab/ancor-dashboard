@@ -1,5 +1,12 @@
 'use strict';
 
+/*
+ *  Environments Controller
+ *
+ *  TODO:
+ *    - Fix ordering on table
+ *
+ */
 angular.module('ancorDashboardApp')
   .controller('ConfsCtrl', function ($scope, $rootScope, $http) {
     // $http.get('ancor-api-sample/instances.json').success(function(data) {
@@ -12,6 +19,11 @@ angular.module('ancorDashboardApp')
 
     $http.get($rootScope.ancorIPAddress+'/v1/environments').success(function(data) {
       $scope.env = data;
+      $scope.keys = [];
+
+      angular.forEach($scope.env[0], function(value, key) {
+        $scope.keys.push(key);
+      });
     });
 
     $scope.title = 'ANCOR Enviornments';
