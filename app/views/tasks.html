@@ -68,6 +68,9 @@
               <td ng-if="task.state == 'in_progress'">
                 <span class="label label-primary">{{task.state}}</span>
               </td>
+              <td ng-if="task.state == 'error'">
+                <span class="label label-danger">{{task.state}}</span>
+              </td>
               <td>{{task.created_at}}</td>
               <td>{{task.updated_at}}</td>
             </tr>
