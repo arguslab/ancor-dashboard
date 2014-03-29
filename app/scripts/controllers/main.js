@@ -141,6 +141,16 @@ angular.module('ancorDashboardApp')
       $route.reload();
     };
 
+    $scope.addNewRole = function (roleSlug) {
+      var url = $rootScope.ancorIPAddress+'/v1/instances',
+          newRole = { 'role': '"' + roleSlug + '"' };
+
+      console.log(newRole);
+
+      $http.post(url, newRole).success();
+      $route.reload();
+    };
+
     // Modal view of a given instance
     $scope.open = function (instance) {
       $scope.items = instance;
