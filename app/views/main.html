@@ -137,7 +137,7 @@
           <tr ng-repeat="instance in instances">
             <td>{{instance.name}}</td>
             <td>[{{instance.interfaces[0].ip_address}}]</td>
-            <td>{{instance.public_ip[0].ip_address}}</td>
+            <td><a href="http://{{instance.public_ip[0].ip_address}}" target="_blank">{{instance.public_ip[0].ip_address}}</a></td>
             <td ng-if="instance.stage == 'undefined'">
               <span class="label label-warning">{{instance.stage}}</span>
             </td>
@@ -171,7 +171,10 @@
                       <div class="modal-body">
                           <ul>
                               <li ng-repeat="(key,item) in items">
-                                  <a ng-click="selected.item = item">{{key}} - {{ item }}</a>
+                                {{key}}
+                                <ul>
+                                  <li><a ng-click="selected.item = item">{{ item }}</a></li>
+                                </ul>
                               </li>
                           </ul>
                           Selected: <b>{{ selected.item }}</b>
