@@ -162,31 +162,29 @@
               <span class="label label-danger">{{instance.planned_stage}}</span>
             </td>
             <td>
-              <div ng-controller="MainCtrl">
-                  <script type="text/ng-template" id="myModalContent.html">
-                      <div class="modal-header">
-                          <h3>Instance Details</h3>
-                      </div>
-                      <div class="modal-body">
-                          <ul>
-                              <li ng-repeat="(key,item) in items">
-                                {{key}}
-                                <ul>
-                                  <li><a ng-click="selected.item = item">{{ item }}</a></li>
-                                </ul>
-                              </li>
-                          </ul>
-                          Selected: <b>{{ selected.item }}</b>
-                        <h4>Advanced Details</h4>
-                      </div>
-                      <div class="modal-footer">
-                          <button class="btn btn-primary" ng-click="ok()">OK</button>
-                          <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-                      </div>
-                  </script>
+              <script type="text/ng-template" id="myModalContent.html">
+                  <div class="modal-header">
+                      <h3>Instance Details</h3>
+                  </div>
+                  <div class="modal-body">
+                      <ul>
+                          <li ng-repeat="(key,item) in items">
+                            {{key}}
+                            <ul>
+                              <li><a ng-click="selected.item = item">{{ item }}</a></li>
+                            </ul>
+                          </li>
+                      </ul>
+                      Selected: <b>{{ selected.item }}</b>
+                    <h4>Advanced Details</h4>
+                  </div>
+                  <div class="modal-footer">
+                      <button class="btn btn-primary" ng-click="ok()">OK</button>
+                      <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                  </div>
+              </script>
 
-                  <button class='btn btn-info' ng-click="open(instance)">View</button>
-              </div>
+              <button class='btn btn-info' ng-click="open(instance)">View</button>
             </td>
             <td>
               <div class="btn-group">
