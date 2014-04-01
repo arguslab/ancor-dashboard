@@ -143,7 +143,7 @@ angular.module('ancorDashboardApp')
 
     $scope.addNewRole = function (roleSlug) {
       var url = $rootScope.ancorIPAddress+'/v1/instances',
-          newRole = { 'role': '"' + roleSlug + '"' };
+          newRole = { 'role': roleSlug };
 
       console.log(newRole);
 
