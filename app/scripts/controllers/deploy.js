@@ -127,6 +127,11 @@ angular.module('ancorDashboardApp')
     //
     // If no changes have been made, deploy is just
     // confData
+    //
+    // Actual endpoint
+    //
+    // /v1/plan
+    // /v1/commit
     $scope.deploy = function () {
       if ($scope.submitData === '') {
         $scope.submitData = $scope.confData;
