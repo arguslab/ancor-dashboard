@@ -17,6 +17,12 @@ $ npm install -g yo
 $ npm install -g generator-angular
 $ bower install
 $ bundle install
-$ grunt test
+```
+
+### Run Application
+
+```
 $ grunt serve
 ```
+
+Then visit localhost on the port specified by grunt.
