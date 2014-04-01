@@ -183,5 +183,8 @@ angular.module('ancorDashboardApp')
       'SitePoint'
     ];
 
+    // Load D3 graph
+    window.setupForcedGraph();
+
     // $scope.instances = [{name: 'Test Name', interfaces: 'Test Interface', stage: 'Success'}, {name: 'Test 2', interfaces: '2Int 2Face', stage: 'Success'}];
   });
