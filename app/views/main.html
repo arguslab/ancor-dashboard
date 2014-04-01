@@ -125,7 +125,8 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Interface</th>
+            <th>Internal IP</th>
+            <th>Public IP</th>
             <th>Stage</th>
             <th>Planned Stage</th>
             <th>More Info</th>
@@ -136,6 +137,7 @@
           <tr ng-repeat="instance in instances">
             <td>{{instance.name}}</td>
             <td>[{{instance.interfaces[0].ip_address}}]</td>
+            <td>{{instance.public_ip[0].ip_address}}</td>
             <td ng-if="instance.stage == 'undefined'">
               <span class="label label-warning">{{instance.stage}}</span>
             </td>
