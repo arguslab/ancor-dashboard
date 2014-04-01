@@ -135,7 +135,7 @@
         <tbody>
           <tr ng-repeat="instance in instances">
             <td>{{instance.name}}</td>
-            <td>{{instance.interfaces}}</td>
+            <td>[{{instance.interfaces[0].ip_address}}]</td>
             <td ng-if="instance.stage == 'undefined'">
               <span class="label label-warning">{{instance.stage}}</span>
             </td>
