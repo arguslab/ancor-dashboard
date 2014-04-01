@@ -3,7 +3,7 @@
 // wrap everything in a function
 // to prevent scope problems
 //
-(function(){
+window.setupForcedGraph = function() {
 
   function tick() {
     path.attr('d', linkArc);
@@ -127,4 +127,4 @@
     k++;
   }
 
-})();
+};

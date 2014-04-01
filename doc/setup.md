@@ -2,21 +2,35 @@
 
 Follow the quickstart guide to get the dashboard up and running
 
-## Quickstart Guide
+## Quickstart guide
 
-### Install NodeJS
+This instructions are all for OS X
 
-First you need to install NodeJS. For OSX:
-
-    $ brew install node
-
-### Install Dependencies
+Install Node.js and NPM with Homebrew
 
 ```
-$ npm install -g yo
-$ npm install -g generator-angular
-$ bower install
-$ bundle install
-$ grunt test
-$ grunt serve
+brew install node
+```
+
+Install Ruby with RVM (used for compiling SASS)
+
+```
+curl -sSL https://get.rvm.io | bash -s stable
+source ~/.rvm/scripts/rvm
+rvm install ruby
+```
+
+Now install the project dependencies with NPM, Bower and Bundler
+
+```
+npm install
+bower install
+bundle install
+```
+
+Test and start the development web server with Grunt
+
+```
+grunt test
+grunt serve
 ```
