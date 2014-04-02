@@ -43,12 +43,6 @@ angular.module('ancorDashboardApp')
     $http.get($rootScope.ancorIPAddress+'/v1/environments').success(function(data) {
       $scope.env = data;
       $scope.totalEnv = $scope.env.length;
-
-      if ($scope.totalEnv === 1) {
-        $scope.stat = 'error';
-      } else {
-        $scope.stat = '';
-      }
     });
 
     $scope.title = 'ANCOR Deploy';
