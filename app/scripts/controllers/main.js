@@ -61,7 +61,6 @@ angular.module('ancorDashboardApp')
       // what stage the instance is at
       angular.forEach($scope.instances, function(value){
         angular.forEach(value, function(v, k){
-          // console.log('k: ' + k + '| v: ' + v);
           if (v === 'deploy' && k === 'stage') {
             numDeployed++;
           } else if (v === 'undefined' && k === 'stage') {
@@ -98,31 +97,9 @@ angular.module('ancorDashboardApp')
       $scope.totalInstances = $scope.instances.length;
     });
 
-    // Define custom entries for instance table view
-    $scope.instanceColumnEntries = [
-      'Name',
-      'Interface',
-      'Stage',
-      'Planned Stage',
-      'More Info',
-      'Operations'
-    ];
-
     // sortable functions
     $scope.orderByField = 'name';
     $scope.reverseSort = false;
-
-    // GET api/instances/x
-    // Query ancor for specific instance for detailed view
-    // Will be invoked when instance is clicked on the table
-
-    // Will be able to take id from given msg to do
-    // http get call on specific instance for more info
-    //
-    // $scope.sendAlert = function (msg) {
-    //   var str = 'id: ' + msg.id + '\nname:' + msg.name + '\ninterface: ' + msg.interfaces + '\nstage: ' + msg.stage + '\nplanned_stage: ' + msg.planned_stage;
-    //   $window.alert(str);
-    // };
 
     $scope.replaceInstance = function (id) {
       var url = $rootScope.ancorIPAddress+'/v1/instances/' + id,
@@ -153,10 +130,23 @@ angular.module('ancorDashboardApp')
       $route.reload();
     };
 
+    $scope.checkStageLabel = function (stage) {
+      if (stage === 'deploy') {
+        return 'label-success';
+      } else if (stage === 'undefined') {
+        return 'label-warning';
+      } else if (stage === 'undeploy') {
+        return 'label-success';
+      } else if (stage === 'error') {
+        return 'label-danger';
+      } else {
+        return 'label-info';
+      }
+    };
+
     // Modal view of a given instance
     $scope.open = function (instance) {
       $scope.items = instance;
-      // console.log(instance);
       var modalInstance = $modal.open({
         templateUrl: 'myModalContent.html',
         controller: ModalInstanceCtrl,
@@ -177,7 +167,6 @@ angular.module('ancorDashboardApp')
     // Page Data
     $scope.title = 'ANCOR Index';
 
-    // $scope.version = 'v0.0.1'; // will be replaced by HTTP GET /api/version
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -187,6 +176,4 @@ angular.module('ancorDashboardApp')
 
     // Load D3 graph
     window.setupForcedGraph();
-
-    // $scope.instances = [{name: 'Test Name', interfaces: 'Test Interface', stage: 'Success'}, {name: 'Test 2', interfaces: '2Int 2Face', stage: 'Success'}];
   });

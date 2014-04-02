@@ -137,29 +137,11 @@
             <td>{{instance.name}}</td>
             <td>[{{instance.interfaces[0].ip_address}}]</td>
             <td><a href="http://{{instance.public_ip.ip_address}}" target="_blank">{{instance.public_ip.ip_address}}</a></td>
-            <td ng-if="instance.stage == 'undefined'">
-              <span class="label label-warning">{{instance.stage}}</span>
+            <td>
+              <span class="label {{checkStageLabel(instance.stage)}}">{{instance.stage}}</span>
             </td>
-            <td ng-if="instance.stage == 'deploy'">
-              <span class="label label-success">{{instance.stage}}</span>
-            </td>
-            <td ng-if="instance.stage == 'undeploy'">
-              <span class="label label-success">{{instance.stage}}</span>
-            </td>
-            <td ng-if="instance.stage == 'error'">
-              <span class="label label-danger">{{instance.stage}}</span>
-            </td>
-            <td ng-if="instance.planned_stage == 'undefined'">
-              <span class="label label-warning">{{instance.planned_stage}}</span>
-            </td>
-            <td ng-if="instance.planned_stage == 'deploy'">
-              <span class="label label-success">{{instance.planned_stage}}</span>
-            </td>
-            <td ng-if="instance.planned_stage == 'undeploy'">
-              <span class="label label-success">{{instance.planned_stage}}</span>
-            </td>
-            <td ng-if="instance.planned_stage == 'error'">
-              <span class="label label-danger">{{instance.planned_stage}}</span>
+            <td>
+              <span class="label {{checkStageLabel(instance.planned_stage)}}">{{instance.planned_stage}}</span>
             </td>
             <td>
               <script type="text/ng-template" id="myModalContent.html">

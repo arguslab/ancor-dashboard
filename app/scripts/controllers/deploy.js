@@ -39,6 +39,18 @@ angular.module('ancorDashboardApp')
       $scope.version = data.version;
     });
 
+
+    $http.get($rootScope.ancorIPAddress+'/v1/environments').success(function(data) {
+      $scope.env = data;
+      $scope.totalEnv = $scope.env.length;
+
+      if ($scope.totalEnv === 1) {
+        $scope.stat = 'error';
+      } else {
+        $scope.stat = '';
+      }
+    });
+
     $scope.title = 'ANCOR Deploy';
     // $scope.version = 'v0.0.1'; // will be replaced by HTTP GET /api/version
 
