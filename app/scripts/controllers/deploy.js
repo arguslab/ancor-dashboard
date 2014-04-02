@@ -143,7 +143,7 @@ angular.module('ancorDashboardApp')
           commitData = { 'commit': true };
 
       $window.alert('Please go to Tasks to watch ANCOR work\n\n' + 'Config File Name: ' + $scope.confFileName + '\n\n' + $scope.submitData);
-      // $http.post(planURL, data, header).success();
+
       $http({
         url: planURL,
         dataType: 'yaml',
@@ -152,11 +152,9 @@ angular.module('ancorDashboardApp')
         headers: {
           'Content-Type': 'application/yaml'
         }
-      }).success(function(response){
-        $scope.response = response;
       });
 
-      $http.put(commitURL, commitData).success();
+      $http.put(commitURL, commitData);
     };
 
   });

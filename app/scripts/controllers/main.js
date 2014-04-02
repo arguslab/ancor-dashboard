@@ -130,7 +130,7 @@ angular.module('ancorDashboardApp')
       console.log('replace ' + id);
       $window.alert('Replaced ' + id + '!');
 
-      $http.post(url, data).success();
+      $http.post(url, data);
       $route.reload();
     };
 
@@ -149,7 +149,7 @@ angular.module('ancorDashboardApp')
 
       console.log(newRole);
 
-      $http.post(url, newRole).success();
+      $http.post(url, newRole);
       $route.reload();
     };
 

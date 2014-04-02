@@ -8,7 +8,7 @@
  *
  */
 angular.module('ancorDashboardApp')
-  .controller('ConfsCtrl', function ($scope, $rootScope, $http) {
+  .controller('ConfsCtrl', function ($scope, $rootScope, $http, $window, $route) {
     // $http.get('ancor-api-sample/instances.json').success(function(data) {
     //   // get current config
     // )};
@@ -25,7 +25,9 @@ angular.module('ancorDashboardApp')
         $scope.keys.push(key);
       });
 
-      $scope.keys.push('Delete');
+      if ($scope.keys.length > 1) {
+        $scope.keys.push('Delete');
+      }
     });
 
     $scope.title = 'ANCOR Enviornments';
@@ -45,6 +47,7 @@ angular.module('ancorDashboardApp')
       console.log('delete ' + slug);
       $window.alert('Deleted ' + slug + '!');
 
+      // console.log(url);
       $http.delete(url);
       $route.reload();
     };
