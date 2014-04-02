@@ -138,12 +138,25 @@ angular.module('ancorDashboardApp')
       var data = $scope.submitData,
           id = 'production',
           planURL = $rootScope.ancorIPAddress+'/v1/environments/'+id+'/plan',
+          header = { 'Content-Type': 'application/yaml' },
           commitURL = $rootScope.ancorIPAddress+'/v1/environments/'+id,
           commitData = { 'commit': true };
 
       $window.alert('Please go to Tasks to watch ANCOR work\n\n' + 'Config File Name: ' + $scope.confFileName + '\n\n' + $scope.submitData);
-      $http.post(planURL, data).success();
-      $http.post(commitURL, commitData).success();
+      // $http.post(planURL, data, header).success();
+      $http({
+        url: planURL,
+        dataType: 'yaml',
+        method: 'POST',
+        data: data,
+        headers: {
+          'Content-Type': 'application/yaml'
+        }
+      }).success(function(response){
+        $scope.response = response;
+      });
+
+      $http.put(commitURL, commitData).success();
     };
 
   });
