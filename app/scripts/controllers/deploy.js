@@ -148,7 +148,8 @@ angular.module('ancorDashboardApp')
           commitURL = $rootScope.ancorIPAddress+'/v1/environments/'+id,
           commitData = { 'commit': true };
 
-      $window.alert('Please go to Tasks to watch ANCOR work\n\n' + 'Config File Name: ' + $scope.confFileName + '\n\n' + $scope.submitData);
+      // $window.alert('Please go to Tasks to watch ANCOR work\n\n' + 'Config File Name: ' + $scope.confFileName + '\n\n' + $scope.submitData);
+      $window.alert('ARML file ' + $scope.confFileName + ' Submitted to ANCOR!' + '\nPlease visit /tasks for more information.');
 
       $http({
         url: planURL,
