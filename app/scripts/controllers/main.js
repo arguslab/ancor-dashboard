@@ -31,7 +31,9 @@ angular.module('ancorDashboardApp')
     });
 
     $http.get($rootScope.ancorIPAddress+'/v1/goals').success(function(data) {
-      $scope.goalName = data[0].name;
+      if (data.length >= 1) {
+        $scope.goalName = data[0].name;
+      }
     });
 
     $http.get($rootScope.ancorIPAddress+'/v1/roles').success(function(data) {

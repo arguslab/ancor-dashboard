@@ -87,7 +87,7 @@ angular.module('ancorDashboardApp')
 
       _session.setUndoManager(new ace.UndoManager());
 
-      // loadConf(_editor);
+      loadConf(_editor);
       // _editor.setValue($scope.confData);
       // console.log($scope.confData);
     };
@@ -122,16 +122,8 @@ angular.module('ancorDashboardApp')
 
     $scope.confFileName = 'newConfiguration.yaml';
 
-    // POST /api/deploy
     // Take given yaml file from dashboard and send to ancor
     //
-    // If no changes have been made, deploy is just
-    // confData
-    //
-    // Actual endpoint
-    //
-    // /v1/plan
-    // /v1/commit
     $scope.deploy = function () {
       if ($scope.submitData === '') {
         $scope.submitData = $scope.confData;
@@ -144,10 +136,14 @@ angular.module('ancorDashboardApp')
       // change url for deployment
       // /v1/environments/???/$scope.confName
       var data = $scope.submitData,
-          url = 'api/deploy/';
+          id = 'production',
+          planURL = $rootScope.ancorIPAddress+'/v1/environments/'+id+'/plan',
+          commitURL = $rootScope.ancorIPAddress+'/v1/environments/'+id,
+          commitData = { 'commit': true };
 
-      $window.alert('Config File Name: ' + $scope.confFileName + '\n\n' + $scope.submitData);
-      $http.post(url, data).success();
+      $window.alert('Please go to Tasks to watch ANCOR work\n\n' + 'Config File Name: ' + $scope.confFileName + '\n\n' + $scope.submitData);
+      $http.post(planURL, data).success();
+      $http.post(commitURL, commitData).success();
     };
 
   });
