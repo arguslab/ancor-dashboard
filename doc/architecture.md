@@ -1,19 +1,5 @@
 # Ancor Dashboard Architecture
 
-## Controller
+## General Architecture
 
-### Main
-
-### Conf
-
-### Deploy
-
-## View
-
-### Main
-
-### Conf
-
-### Deploy
-
-## Interaction with ancor
+## Interaction Diagrams

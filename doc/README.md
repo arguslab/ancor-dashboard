@@ -1,8 +1,6 @@
 # ANCOR Dashboard
 
-Here is the initial stages of documentation for this project
-
-To launch the project, type the following:
+If you have already followed the setup doc and want to launch the project, type the following:
 
     $ grunt serve
 
