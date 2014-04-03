@@ -1,5 +1,4 @@
-ancor-dashboard
-===============
+# ancor-dashboard v0.0.3
 
 A frontend framework for ancor
 
