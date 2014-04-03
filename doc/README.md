@@ -14,7 +14,7 @@ This project is built to interact with [ANCOR](https://github.com/arguslab/ancor
 
 ## Setting up ancor dashboard
 
-If you wish to try out the project, visit the [setup doc](doc/setup) for more information.
+If you wish to try out the project, visit the [setup doc](setup.md) for more information.
 
 ## Frameworks
 
