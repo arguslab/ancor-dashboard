@@ -48,6 +48,8 @@ angular.module('ancorDashboardApp')
     $http.get($rootScope.ancorIPAddress+'/v1/instances').success(function(data) {
       $scope.instances = data;
 
+      var d3InstanceLinks = [];
+
       var numDeployed = 0,
           numUndeployed = 0,
           numErrored = 0,
@@ -82,6 +84,15 @@ angular.module('ancorDashboardApp')
           } else if (v === 'error' && k === 'planned_stage') {
             numPlanErrored++;
           }
+
+          // create array set for d3 graph
+          if (k === 'depends_on') {
+            angular.forEach(v, function(depend_on_ids) {
+              var elem = { source: value.name, target: depend_on_ids.name, type: 'test', sid: value.id };
+
+              d3InstanceLinks.push(elem);
+            });
+          }
         });
       });
 
@@ -95,6 +106,9 @@ angular.module('ancorDashboardApp')
       $scope.totalPlanErrored = numPlanErrored;
 
       $scope.totalInstances = $scope.instances.length;
+
+      // Load D3 graph
+      window.setupForcedGraph(d3InstanceLinks);
     });
 
     // sortable functions
@@ -174,6 +188,4 @@ angular.module('ancorDashboardApp')
       'SitePoint'
     ];
 
-    // Load D3 graph
-    window.setupForcedGraph();
   });

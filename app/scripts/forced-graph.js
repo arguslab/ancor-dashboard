@@ -3,7 +3,7 @@
 // wrap everything in a function
 // to prevent scope problems
 //
-window.setupForcedGraph = function() {
+window.setupForcedGraph = function(instances) {
 
   function tick() {
     path.attr('d', linkArc);
@@ -14,6 +14,7 @@ window.setupForcedGraph = function() {
   // HTTP GET
   // /v1/instances
   function getEdges() {
+    // console.log(instances);
     var links = [
       {source: 'web0', target: 'db0', type: 'direct', sid: '123'},
       {source: 'web0', target: 'weblb0', type: 'test', sid: '123'},
@@ -31,7 +32,8 @@ window.setupForcedGraph = function() {
   }
 
   // http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/
-  var links = getEdges(),
+  //var links = getEdges(),
+  var links = instances,
       nodes = {};
 
 
@@ -42,7 +44,7 @@ window.setupForcedGraph = function() {
   });
 
   var width = 660,
-      height = 350;
+      height = 450;
 
   var force = d3.layout.force()
       .nodes(d3.values(nodes))
@@ -85,7 +87,7 @@ window.setupForcedGraph = function() {
 
   function returnLinkId(name) {
     for (var elem in links) {
-      console.log(links[elem]);
+      // console.log(links[elem]);
       if (links[elem].source.name === name) {
         return links[elem].sid;
       }
@@ -94,10 +96,11 @@ window.setupForcedGraph = function() {
 
   // alert user to node name on click
   //
+  // css class hide on click
   circle.on('click', function(d) {
     // console.log(links[d.name]);
     var sourceId = returnLinkId(d.name);
-    window.alert('Node Name: ' + d.name + '\nNode ID: ' + sourceId);
+    console.log('Node Name: ' + d.name + '\nNode ID: ' + sourceId);
   });
 
   var text = svg.append('g').selectAll('text')
