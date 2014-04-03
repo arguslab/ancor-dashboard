@@ -87,8 +87,8 @@ angular.module('ancorDashboardApp')
 
           // create array set for d3 graph
           if (k === 'depends_on') {
-            angular.forEach(v, function(depend_on_ids) {
-              var elem = { source: value.name, target: depend_on_ids.name, type: 'test', sid: value.id };
+            angular.forEach(v, function(dependOnIds) {
+              var elem = { source: value.name, target: dependOnIds.name, type: 'test', sid: value.id };
 
               d3InstanceLinks.push(elem);
             });
