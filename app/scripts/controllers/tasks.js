@@ -54,4 +54,22 @@ angular.module('ancorDashboardApp')
 
     // Page title
     $scope.title = 'ANCOR Tasks';
+
+    // Helper to generate correct label for task state
+    //
+    $scope.checkStateLabel = function (state) {
+      if (state === 'suspended') {
+        return 'label-warning';
+      } else if (state === 'completed') {
+        return 'label-success';
+      } else if (state === 'pending') {
+        return 'label-info';
+      } else if (state === 'in_progress') {
+        return 'label-primary';
+      } else if (state === 'error') {
+        return 'label-danger';
+      } else {
+        return 'label-info';
+      }
+    };
   });
