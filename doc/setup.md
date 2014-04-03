@@ -28,9 +28,8 @@ bower install
 bundle install
 ```
 
-Test and start the development web server with Grunt
+Start the development web server with Grunt
 
 ```
-grunt test
 grunt serve
 ```
