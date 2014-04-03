@@ -3,10 +3,7 @@
 /*
  *  Controller for help Modal
  *
- *  Makes a few blocks of text available for
- *  modal to display when user clicks 'help'
- *
- *  http get retrieves the example.yaml config
+ *  loadExampleConf retrieves the example.yaml config
  *  to display to the user
  */
 var ConfHelpCtrl = function($scope, $modalInstance, $http) {
@@ -26,6 +23,9 @@ var ConfHelpCtrl = function($scope, $modalInstance, $http) {
   loadExampleConf();
 };
 
+/*
+ *  Deploy Controller
+ */
 angular.module('ancorDashboardApp')
   .controller('DeployCtrl', function ($scope, $rootScope, $window, $http, $modal) {
     $scope.awesomeThings = [
@@ -34,19 +34,25 @@ angular.module('ancorDashboardApp')
       'Karma'
     ];
 
+    /*
+     *  ANCOR REST API Calls
+     */
 
+    // Get ancor version
+    //
     $http.get($rootScope.ancorIPAddress+'/v1').success(function(data) {
       $scope.version = data.version;
     });
 
-
+    // Get total environments
+    //
     $http.get($rootScope.ancorIPAddress+'/v1/environments').success(function(data) {
       $scope.env = data;
       $scope.totalEnv = $scope.env.length;
     });
 
+    // Page title
     $scope.title = 'ANCOR Deploy';
-    // $scope.version = 'v0.0.1'; // will be replaced by HTTP GET /api/version
 
     // function used when help button is clicked
     //
@@ -60,6 +66,9 @@ angular.module('ancorDashboardApp')
 
     // Validates that the user has a conf file
     // name that has a .yaml file extension
+    //
+    // Currently, file validation is not required
+    // however this might be a useful feature in the future.
     $scope.confFileValidation = (function() {
       var regexp = /^[\w,\s-]+\.yaml$/;
       return {
@@ -93,9 +102,8 @@ angular.module('ancorDashboardApp')
 
       _session.setUndoManager(new ace.UndoManager());
 
+      // Uncomment this line for an example config
       loadConf(_editor);
-      // _editor.setValue($scope.confData);
-      // console.log($scope.confData);
     };
 
     // For each change made in the ACE editor,
@@ -151,6 +159,7 @@ angular.module('ancorDashboardApp')
       // $window.alert('Please go to Tasks to watch ANCOR work\n\n' + 'Config File Name: ' + $scope.confFileName + '\n\n' + $scope.submitData);
       $window.alert('ARML file ' + $scope.confFileName + ' Submitted to ANCOR!' + '\nPlease visit /tasks for more information.');
 
+      // ancor environment plan ancor.yaml
       $http({
         url: planURL,
         dataType: 'yaml',
@@ -161,6 +170,7 @@ angular.module('ancorDashboardApp')
         }
       });
 
+      // ancor environment commit
       $http.put(commitURL, commitData);
     };
 

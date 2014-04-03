@@ -12,6 +12,10 @@ And grunt should take care of the rest...assuming you have all the dependencies.
 
 This project is built to interact with [ANCOR](https://github.com/arguslab/ancor)
 
+## Setting up ancor dashboard
+
+If you wish to try out the project, visit the [setup doc](doc/setup) for more information.
+
 ## Frameworks
 
 Here are the various frameworks used for this project:
@@ -21,14 +25,6 @@ Here are the various frameworks used for this project:
 - Yeoman - scaffolding tool
 - AngularJS - javascript frontend framework
 - Angular UI - for CSS and various styling using Twitter Bootstrap
-
-## Running Tests
-
-Grunt is able to run the dashboard tests for the project. Simply type the following command:
-
-    $ grunt test
-
-Grunt will then run all of the tests defined in `test/`.
 
 ## Use Cases
 

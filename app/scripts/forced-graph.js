@@ -11,26 +11,6 @@ window.setupForcedGraph = function(instances) {
     text.attr('transform', transform);
   }
 
-  // HTTP GET
-  // /v1/instances
-  function getEdges() {
-    // console.log(instances);
-    var links = [
-      {source: 'web0', target: 'db0', type: 'direct', sid: '123'},
-      {source: 'web0', target: 'weblb0', type: 'test', sid: '123'},
-      {source: 'db0', target: 'web0', type: 'direct', sid: '456'},
-      {source: 'weblb0', target: 'web0', type: 'test', sid: '789'},
-      {source: 'db1', target: 'db1', type: 'direct', sid: '999'},
-    ];
-
-    var newElem = {source: 'weblb1', target: 'web0', type: 'resolved', sid: '112'},
-        newElem2 = {source: 'web0', target: 'weblb1', type: 'resolved', sid: '123'};
-
-    links.push(newElem);
-    links.push(newElem2);
-    return links;
-  }
-
   // http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/
   //var links = getEdges(),
   var links = instances,
@@ -51,7 +31,7 @@ window.setupForcedGraph = function(instances) {
       .links(links)
       .size([width, height])
       .linkDistance(210)
-      .charge(-300)
+      .charge(-1000)
       .on('tick', tick)
       .start();
 
@@ -82,9 +62,10 @@ window.setupForcedGraph = function(instances) {
   var circle = svg.append('g').selectAll('circle')
       .data(force.nodes())
     .enter().append('circle')
-      .attr('r', 20)
+      .attr('r', 15)
       .call(force.drag);
 
+  // Iterates through instaces to obtain node id
   function returnLinkId(name) {
     for (var elem in links) {
       // console.log(links[elem]);

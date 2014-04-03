@@ -8,12 +8,19 @@
  */
 angular.module('ancorDashboardApp')
   .controller('TasksCtrl', function ($scope, $rootScope, $http) {
+
+    /*
+     *  REST API calls to ancor
+     */
+
+    // Get ancor version
+    //
     $http.get($rootScope.ancorIPAddress+'/v1').success(function(data) {
       $scope.version = data.version;
     });
 
-    $scope.quantity = 15;
-
+    // Obtain tasks from ancor
+    //
     $scope.getData = function() {
       $http.get($rootScope.ancorIPAddress+'/v1/tasks').success(function(data) {
         $scope.tasks = data;
@@ -23,11 +30,14 @@ angular.module('ancorDashboardApp')
           $scope.keys.push(key);
         });
 
+        // sort by updated_at with newest first
         $scope.predicate = '-updated_at';
       });
     };
 
     $scope.getData();
+
+    $scope.quantity = 15;
 
     // Function to replicate setInterval using $timeout service.
     //
@@ -42,5 +52,6 @@ angular.module('ancorDashboardApp')
     // Kick off the interval
     // $scope.intervalFunction();
 
+    // Page title
     $scope.title = 'ANCOR Tasks';
   });
