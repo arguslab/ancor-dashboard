@@ -20,15 +20,17 @@ If you wish to try out the project, visit the [setup doc](doc/setup) for more in
 
 Here are the various frameworks used for this project:
 
-- Grunt - build tool
-- Bower - dependency management
 - Yeoman - scaffolding tool
+- Bower - dependency management
+- Grunt - build tool
 - AngularJS - javascript frontend framework
-- Angular UI - for CSS and various styling using Twitter Bootstrap
+- Angular UI - for CSS and various styling using Bootstrap 3
+- Ace Editor - makes writing arml config files for ancor easier
+- D3.js - draws graph of ancor network
 
 ## Use Cases
 
-For more information about use cases, visit the `use-case` doc.
+For more information about use cases, visit the [use-case doc](doc/use-cases.md).
 
 - Seeing the state of instances
 - Seeing the current tasks
