@@ -50,6 +50,8 @@ angular.module('ancorDashboardApp')
 
       var d3InstanceLinks = [];
 
+      // Calculate how many instances are in a certain state
+      //
       var numDeployed = 0,
           numUndeployed = 0,
           numErrored = 0,
@@ -59,10 +61,11 @@ angular.module('ancorDashboardApp')
           numPlanErrored = 0,
           numPlanUndefined = 0;
 
-      // display different label color depending on
-      // what stage the instance is at
       angular.forEach($scope.instances, function(value){
         angular.forEach(value, function(v, k){
+
+          // do checks for stage
+          //
           if (v === 'deploy' && k === 'stage') {
             numDeployed++;
           } else if (v === 'undefined' && k === 'stage') {
@@ -73,7 +76,7 @@ angular.module('ancorDashboardApp')
             numErrored++;
           }
 
-          // do checks for planned_stage here
+          // do checks for planned_stage
           //
           if (v === 'deploy' && k === 'planned_stage') {
             numPlanDeployed++;
@@ -86,6 +89,7 @@ angular.module('ancorDashboardApp')
           }
 
           // create array set for d3 graph
+          //
           if (k === 'depends_on') {
             angular.forEach(v, function(dependOnIds) {
               var elem = { source: value.name, target: dependOnIds.name, type: 'test', sid: value.id };
@@ -96,6 +100,8 @@ angular.module('ancorDashboardApp')
         });
       });
 
+      // Set scope vars for main view to access
+      //
       $scope.totalDeployed = numDeployed;
       $scope.totalUndefined = numUndefined;
       $scope.totalUndeployed = numUndeployed;
@@ -108,6 +114,7 @@ angular.module('ancorDashboardApp')
       $scope.totalInstances = $scope.instances.length;
 
       // Load D3 graph
+      //
       window.setupForcedGraph(d3InstanceLinks);
     });
 
@@ -115,6 +122,11 @@ angular.module('ancorDashboardApp')
     $scope.orderByField = 'name';
     $scope.reverseSort = false;
 
+    // Replace instance function
+    //
+    // Currently not implemented in ancor but functionality
+    // here should work once implemented in ancor
+    //
     $scope.replaceInstance = function (id) {
       var url = $rootScope.ancorIPAddress+'/v1/instances/' + id,
           data = { 'replace': true };
@@ -125,6 +137,8 @@ angular.module('ancorDashboardApp')
       $route.reload();
     };
 
+    // Delete a given instance
+    //
     $scope.deleteInstance = function (id) {
       var url = $rootScope.ancorIPAddress+'/v1/instances/' + id;
       console.log('delete ' + id);
@@ -134,16 +148,20 @@ angular.module('ancorDashboardApp')
       $route.reload();
     };
 
+    // Add a new role to ancor
+    //
     $scope.addNewRole = function (roleSlug) {
       var url = $rootScope.ancorIPAddress+'/v1/instances',
           newRole = { 'role': roleSlug };
 
-      console.log(newRole);
+      $window.alert('New role ' + roleSlug + ' added!');
 
       $http.post(url, newRole);
       $route.reload();
     };
 
+    // Helper function to give label to stage and
+    // planned stage in instance table
     $scope.checkStageLabel = function (stage) {
       if (stage === 'deploy') {
         return 'label-success';
@@ -159,6 +177,7 @@ angular.module('ancorDashboardApp')
     };
 
     // Modal view of a given instance
+    //
     $scope.open = function (instance) {
       $scope.items = instance;
       var modalInstance = $modal.open({
