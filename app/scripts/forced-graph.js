@@ -62,7 +62,7 @@ window.setupForcedGraph = function(instances) {
   var circle = svg.append('g').selectAll('circle')
       .data(force.nodes())
     .enter().append('circle')
-      .attr('r', 15)
+      .attr('r', 10)
       .call(force.drag);
 
   // Iterates through instaces to obtain node id

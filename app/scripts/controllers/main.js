@@ -92,7 +92,7 @@ angular.module('ancorDashboardApp')
           //
           if (k === 'depends_on') {
             angular.forEach(v, function(dependOnIds) {
-              var elem = { source: value.name, target: dependOnIds.name, type: 'test', sid: value.id };
+              var elem = { source: value.name, target: dependOnIds.name, type: 'direct', sid: value.id };
 
               d3InstanceLinks.push(elem);
             });
