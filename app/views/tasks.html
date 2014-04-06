@@ -53,7 +53,6 @@
             <tr ng-repeat="task in tasks | orderBy:predicate:reverse | filter:searchText">
               <td>{{task.id}}</td>
               <td>{{task.type}}</td>
-              <td>args</td>
               <td>
                 <span class="label {{checkStateLabel(task.state)}}">{{task.state}}</span>
               </td>

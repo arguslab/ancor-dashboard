@@ -27,7 +27,9 @@ angular.module('ancorDashboardApp')
         $scope.keys = [];
 
         angular.forEach($scope.tasks[0], function(value, key) {
-          $scope.keys.push(key);
+          if (key != 'arguments') {
+            $scope.keys.push(key);
+          }
         });
 
         // sort by updated_at with newest first
