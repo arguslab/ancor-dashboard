@@ -30,7 +30,7 @@ window.setupForcedGraph = function(instances) {
       .nodes(d3.values(nodes))
       .links(links)
       .size([width, height])
-      .linkDistance(210)
+      .linkDistance(110)
       .charge(-1000)
       .on('tick', tick)
       .start();
