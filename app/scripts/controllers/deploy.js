@@ -103,7 +103,7 @@ angular.module('ancorDashboardApp')
       _session.setUndoManager(new ace.UndoManager());
 
       // Uncomment this line for an example config
-      loadConf(_editor);
+      // loadConf(_editor);
     };
 
     // For each change made in the ACE editor,
