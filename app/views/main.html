@@ -120,7 +120,8 @@
         <ul class="dropdown-menu" role="menu" >
           <li ng-repeat="role in roles"><a ng-click="addNewRole(role)">{{role}}</a></li>
         </ul>
-      </div>
+      </div></br></br>
+      <input type="text" placeholder="Search in Instances..." class="form-control" ng-model="searchText" />
       <table class="table table-hover">
         <thead>
           <tr>
@@ -134,7 +135,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="instance in instances">
+          <tr ng-repeat="instance in instances | filter:searchText">
             <td>{{instance.name}}</td>
             <td>[{{instance.interfaces[0].ip_address}}]</td>
             <td><a href="http://{{instance.public_ip.ip_address}}" target="_blank">{{instance.public_ip.ip_address}}</a></td>
