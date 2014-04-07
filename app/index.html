@@ -19,7 +19,10 @@
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link href="styles/dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/instance-graph.css">
+    <link rel="stylesheet" href="styles/ace.css">
     <!-- endbuild -->
+    <title>ANCOR Dashboard</title>
   </head>
   <body ng-app="ancorDashboardApp">
     <!-- Add your site or application content here -->
@@ -55,6 +58,10 @@
     <script src="scripts/controllers/tasks.js"></script>
     <script src="scripts/controllers/env.js"></script>
     <!-- endbuild -->
+
+    <div class="footer">
+      <p>ancor-dashboard {{adVersion}} | Kansas State University | Brian Cain 2014</p>
+    </div>
 </body>
 </html>
 

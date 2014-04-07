@@ -1,9 +1,3 @@
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <link rel="stylesheet" href="styles/instance-graph.css">
-  <title>{{title}}</title>
-</head>
-
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -55,7 +49,7 @@
           </div>
         </div>
 
-        <div class"row text-center">
+        <div class="row text-center">
           <div class="col-md-4">
           </div>
           <div class="col-md-4">
@@ -77,7 +71,7 @@
         <ul class="dropdown-menu" role="menu" >
           <li ng-repeat="role in roles"><a ng-click="addNewRole(role)">{{role}}</a></li>
         </ul>
-      </div></br></br>
+      </div><br><br>
       <input type="text" placeholder="Search in Instances..." class="form-control" ng-model="searchText" />
       <table class="table table-hover">
         <thead>
@@ -143,8 +137,4 @@
       </table>
     </div>
   </div>
-</div>
-
-<div class="footer">
-  <p>ancor-dashboard {{adVersion}} | Kansas State University | Brian Cain 2014</p>
 </div>
