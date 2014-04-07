@@ -6,6 +6,12 @@ Follow the quickstart guide to get the dashboard up and running
 
 This instructions are all for OS X
 
+### Setting up ANCOR
+
+Before using this dashboard, you must first install and setup ANCOR. Follow the official guide [here](https://github.com/arguslab/ancor#using-and-configuring-ancor)
+
+### Setting up ANCOR Dashboard
+
 Install Node.js and NPM with Homebrew
 
 ```
