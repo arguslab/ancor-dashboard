@@ -10,7 +10,7 @@ This instructions are all for OS X
 
 Before using this dashboard, you must first install and setup ANCOR. Follow the official guide [here](https://github.com/arguslab/ancor#using-and-configuring-ancor)
 
-### Setting up ANCOR Dashboard
+### Setting up ANCOR Dashboard for local testing
 
 Install Node.js and NPM with Homebrew
 
@@ -39,3 +39,5 @@ Start the development web server with Grunt
 ```
 grunt serve
 ```
+
+### Setting up ANCOR Dashboard for Deployment
