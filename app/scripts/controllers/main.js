@@ -130,11 +130,12 @@ angular.module('ancorDashboardApp')
     $scope.replaceInstance = function (id) {
       var url = $rootScope.ancorIPAddress+'/v1/instances/' + id,
           data = { 'replace': true };
-      console.log('replace ' + id);
-      $window.alert('Replaced ' + id + '!');
+      // console.log('replace ' + id);
+      // $window.alert('Replaced ' + id + '!');
+      $window.alert('Replace instance function not implemented in ANCOR yet!');
 
-      $http.post(url, data);
-      $route.reload();
+      // $http.post(url, data);
+      // $route.reload();
     };
 
     // Delete a given instance

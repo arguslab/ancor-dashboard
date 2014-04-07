@@ -1,0 +1,41 @@
+#directedNetworkContainer {
+  width: 752px;
+  height: 352px;
+  border: 1px solid lightgray;
+}
+
+path.link {
+  fill: none;
+  stroke: #666;
+  stroke-width: 2.5px;
+}
+
+marker#direct {
+  fill: #99CCFF;
+}
+
+path.link.direct {
+  stroke: green;
+}
+
+path.link.resolved {
+  stroke-dasharray: 0,2 1;
+}
+
+circle {
+  fill: #ccc;
+  stroke: #333;
+  stroke-width: 1.2px;
+}
+
+text {
+  font: 11px sans-serif;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+text.shadow {
+  stroke: #fff;
+  stroke-width: 3px;
+  stroke-opacity: .8;
+}
