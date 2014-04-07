@@ -1,11 +1,7 @@
 'use strict';
 
-/*
- *  Environments Controller
- *
- */
 angular.module('ancorDashboardApp')
-  .controller('ConfsCtrl', function ($scope, $rootScope, $http, $window, $route) {
+  .controller('EnvCtrl', function ($scope, $rootScope, $http, $window, $route) {
 
     /*
      *  REST API calls to ANCOR
@@ -53,5 +49,4 @@ angular.module('ancorDashboardApp')
       'AngularJS',
       'Karma'
     ];
-
   });

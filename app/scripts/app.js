@@ -14,10 +14,6 @@ var app = angular.module('ancorDashboardApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/confs', {
-        templateUrl: 'views/confs.html',
-        controller: 'ConfsCtrl'
-      })
       .when('/deploy', {
         templateUrl: 'views/deploy.html',
         controller: 'DeployCtrl'
@@ -25,6 +21,10 @@ var app = angular.module('ancorDashboardApp', [
       .when('/tasks', {
         templateUrl: 'views/tasks.html',
         controller: 'TasksCtrl'
+      })
+      .when('/env', {
+        templateUrl: 'views/env.html',
+        controller: 'EnvCtrl'
       })
       .otherwise({
         redirectTo: '/'

@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: ConfsCtrl', function () {
+describe('Controller: EnvCtrl', function () {
 
   // load the controller's module
   beforeEach(module('ancorDashboardApp'));
 
-  var ConfsCtrl,
+  var EnvCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    ConfsCtrl = $controller('ConfsCtrl', {
+    EnvCtrl = $controller('EnvCtrl', {
       $scope: scope
     });
   }));
