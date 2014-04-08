@@ -163,6 +163,7 @@ angular.module('ancorDashboardApp')
 
     // Helper function to give label to stage and
     // planned stage in instance table
+    //
     $scope.checkStageLabel = function (stage) {
       if (stage === 'deploy') {
         return 'label-success';

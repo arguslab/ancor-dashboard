@@ -22,7 +22,11 @@ angular.module('ancorDashboardApp')
     // Obtain tasks from ancor
     //
     $scope.getData = function() {
+      var btn = $('#loading-btn');
+      btn.button('loading');
+
       $http.get($rootScope.ancorIPAddress+'/v1/tasks').success(function(data) {
+
         $scope.tasks = data;
         $scope.keys = [];
 
@@ -34,6 +38,7 @@ angular.module('ancorDashboardApp')
 
         // sort by updated_at with newest first
         $scope.predicate = '-updated_at';
+        btn.button('reset');
       });
     };
 
