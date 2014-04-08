@@ -27,7 +27,7 @@ angular.module('ancorDashboardApp')
         $scope.keys = [];
 
         angular.forEach($scope.tasks[0], function(value, key) {
-          if (key != 'arguments') {
+          if (key !== 'arguments') {
             $scope.keys.push(key);
           }
         });
