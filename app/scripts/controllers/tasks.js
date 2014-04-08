@@ -43,7 +43,9 @@ angular.module('ancorDashboardApp')
 
     // Function to replicate setInterval using $timeout service.
     //
-    // Problem with this is it gets called when user isn't on tasks page
+    // Problem with this is it gets called when user moves away
+    // from task page
+    //
     // $scope.intervalFunction = function(){
     //   $timeout(function() {
     //     $scope.getData();
