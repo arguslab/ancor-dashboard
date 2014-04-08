@@ -12,6 +12,8 @@ Before using this dashboard, you must first install and setup ANCOR. Follow the 
 
 ### Setting up ANCOR Dashboard for local testing
 
+__NOTE:__ This has not been tested on a linux distribution yet. These instructions are for OSX currently.
+
 Install Node.js and NPM with Homebrew
 
 ```
