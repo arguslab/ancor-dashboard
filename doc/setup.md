@@ -38,6 +38,8 @@ bundle install
 
 Once you have all of the dependencies installed and ANCOR installed and running, you need to define where ANCOR exists. If the Dashboard and ANCOR are on the same network, you should be fine by using the default localhost option that is currently defined. Otherwise, you need to change that IP called `$rootScope.ancorIPAddress` within `app/scripts/app.js` under the `app.run...` function. The default is `http://localhost:3000`.
 
+    // function within app/scripts/app.js
+    //
     app.run(function ($rootScope) {
       // .... //
       $rootScope.ancorIPAddress = 'http://localhost:3000'; // ip_address of ANCOR project
