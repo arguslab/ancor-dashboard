@@ -44,6 +44,15 @@ angular.module('ancorDashboardApp')
       $route.reload();
     };
 
+    $scope.getState = function (lockState) {
+      console.log(lockState);
+      if (lockState === true) {
+        return 'disabled';
+      } else {
+        return '';
+      }
+    };
+
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
