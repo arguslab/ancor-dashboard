@@ -4,7 +4,7 @@ Follow the quickstart guide to get the dashboard up and running
 
 ## Quickstart guide
 
-This instructions are all for OS X
+So far, these setup instructions have been tested on OSX and Debian. Other OS's have not been tested. If you would like to test out the project on something like CentOS, refer to the documentation of a specific tool for getting it installed (like nodeJS or bower).
 
 ### Setting up ANCOR
 
