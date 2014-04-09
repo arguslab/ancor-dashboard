@@ -12,6 +12,13 @@ Before using this dashboard, you must first install and setup ANCOR. Follow the 
 
 ### Setting up ANCOR Dashboard for local testing and deployment
 
+Clone the ancor-dashboard repository:
+
+```
+git clone https://github.com/arguslab/ancor-dashboard
+cd ancor-dashboard
+```
+
 #### Node.js for OSX
 
 Install Node.js and NPM with Homebrew for OSX
@@ -52,7 +59,7 @@ Now install the project dependencies with NPM, Bower and Bundler
 
 ```
 npm install
-npm install -g bower grunt-cli # this step might be required on Debian if the npm install did not install bower or grunt-cli.
+sudo npm install -g bower grunt-cli # this step might be required on Debian if the npm install did not install bower or grunt-cli.
 bower install
 bundle install
 ```
