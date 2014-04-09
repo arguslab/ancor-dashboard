@@ -1,5 +1,8 @@
 'use strict';
 
+/*
+ *  Controller for Environments
+ */
 angular.module('ancorDashboardApp')
   .controller('EnvCtrl', function ($scope, $rootScope, $http, $window, $route) {
 
@@ -45,7 +48,6 @@ angular.module('ancorDashboardApp')
     };
 
     $scope.getState = function (lockState) {
-      console.log(lockState);
       if (lockState === true) {
         return 'disabled';
       } else {

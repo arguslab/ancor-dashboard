@@ -2,9 +2,6 @@
 
 /*
  *  Task Controller
- *
- *  TODO:
- *    - Add modal to view for args
  */
 angular.module('ancorDashboardApp')
   .controller('TasksCtrl', function ($scope, $rootScope, $http) {
@@ -43,8 +40,6 @@ angular.module('ancorDashboardApp')
     };
 
     $scope.getData();
-
-    $scope.quantity = 15;
 
     // Function to replicate setInterval using $timeout service.
     //

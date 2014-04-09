@@ -12,7 +12,7 @@ var ConfHelpCtrl = function($scope, $modalInstance, $http) {
   };
 
   var loadExampleConf = function() {
-      $http.get('example.yaml').success(function(data) {
+      $http.get('conf-sample/example.yaml').success(function(data) {
         $scope.exampleConf = data;
       });
     };
@@ -147,8 +147,6 @@ angular.module('ancorDashboardApp')
         $scope.confFileName = 'blankConfig.yaml';
       }
 
-      // change url for deployment
-      // /v1/environments/???/$scope.confName
       var data = $scope.submitData,
           id = 'production',
           planURL = $rootScope.ancorIPAddress+'/v1/environments/'+id+'/plan',

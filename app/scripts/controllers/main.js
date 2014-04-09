@@ -23,19 +23,34 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
   };
 };
 
+/*
+ *  Main index controller
+ */
 angular.module('ancorDashboardApp')
   .controller('MainCtrl', function ($scope, $rootScope, $http, $window, $modal, $log, $route) {
 
+    /*
+     *  ANCOR REST API calls
+     */
+
+    // Gets version from ANCOR
+    //
     $http.get($rootScope.ancorIPAddress+'/v1').success(function(data) {
       $scope.version = data.version;
     });
 
+    // Gets GOALS from ANCOR
+    // Currently only supports 1 goal
+    //
     $http.get($rootScope.ancorIPAddress+'/v1/goals').success(function(data) {
       if (data.length >= 1) {
         $scope.goalName = data[0].name;
       }
     });
 
+    // Gets all ROLES from Ancor
+    // For adding new instances, just needs role slug
+    //
     $http.get($rootScope.ancorIPAddress+'/v1/roles').success(function(data) {
       $scope.fullRoles = data;
       $scope.roles = [];
@@ -45,6 +60,7 @@ angular.module('ancorDashboardApp')
     });
 
     // retrieve instances from ANCOR
+    //
     $http.get($rootScope.ancorIPAddress+'/v1/instances').success(function(data) {
       $scope.instances = data;
 
@@ -113,14 +129,10 @@ angular.module('ancorDashboardApp')
 
       $scope.totalInstances = $scope.instances.length;
 
-      // Load D3 graph
+      // Load D3 graph with new instance relation set
       //
       window.setupForcedGraph(d3InstanceLinks);
     });
-
-    // sortable functions
-    $scope.orderByField = 'name';
-    $scope.reverseSort = false;
 
     // Replace instance function
     //
