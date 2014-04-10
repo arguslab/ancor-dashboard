@@ -212,9 +212,6 @@ angular.module('ancorDashboardApp')
       });
     };
 
-    // Page Data
-    $scope.title = 'ANCOR Index';
-
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

@@ -33,9 +33,6 @@ angular.module('ancorDashboardApp')
       }
     });
 
-    // Page Title
-    $scope.title = 'ANCOR Enviornments';
-
     $scope.data = [{name: 'Loading configurations...', contents: ''}];
 
     // Delete Environment

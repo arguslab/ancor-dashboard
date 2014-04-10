@@ -53,9 +53,6 @@ angular.module('ancorDashboardApp')
       $scope.totalEnv = $scope.env.length;
     });
 
-    // Page title
-    $scope.title = 'ANCOR Deploy';
-
     // function used when help button is clicked
     //
     // will open modal through ConfHelpCtrl

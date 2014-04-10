@@ -58,9 +58,6 @@ angular.module('ancorDashboardApp')
     // Kick off the interval
     // $scope.intervalFunction();
 
-    // Page title
-    $scope.title = 'ANCOR Tasks';
-
     // Helper to generate correct label for task state
     //
     $scope.checkStateLabel = function (state) {
