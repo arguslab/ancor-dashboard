@@ -10,9 +10,17 @@ If you are interested in the basic layout of ANCOR's REST API, please visit thei
 
 ## Instances
 
-Information about instances
+### Viewing Instances
 
-## Configuration Setup
+### Filtering Instances
+
+### Adding a new role
+
+### Removing a role
+
+### Viewing the details of an instance
+
+## Deploying ancor
 
 This defines how users will submit arml configs to ancor
 
@@ -20,10 +28,18 @@ This defines how users will submit arml configs to ancor
 
 Ace Editor
 
+### Goal and Role Templates
+
+### Help
+
 ## Environments
 
-Information about environments
+### Deleting an Environment
 
 ## Tasks
 
-Information about tasks
+### Viewing all Tasks
+
+### Filtering Tasks
+
+### Refreshing Tasks
