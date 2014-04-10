@@ -91,7 +91,7 @@ Then grunt should serve up the application and automatically open the project in
 
 #### Setting up ANCOR Dashboard for Deployment
 
-If you are ready to deploy the dashboard, first you must built the project with grunt.
+If you are ready to deploy the dashboard (and have made changes to the source), first you must built the project with grunt.
 
 ```
 grunt build
