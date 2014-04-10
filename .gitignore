@@ -5,4 +5,3 @@ dist
 .tmp
 .sass-cache
 app/bower_components
-doc/todo.md

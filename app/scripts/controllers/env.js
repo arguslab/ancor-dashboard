@@ -6,6 +6,12 @@
 angular.module('ancorDashboardApp')
   .controller('EnvCtrl', function ($scope, $rootScope, $http, $window, $route) {
 
+    // h1 title
+    //
+    $scope.title = 'ANCOR Enviornments';
+
+    // page title
+    //
     $window.document.title = 'Environments | ANCOR Dashboard';
 
     /*

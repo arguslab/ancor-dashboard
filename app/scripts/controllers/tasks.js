@@ -6,6 +6,12 @@
 angular.module('ancorDashboardApp')
   .controller('TasksCtrl', function ($scope, $rootScope, $http, $window) {
 
+    // h1 title
+    //
+    $scope.title = 'ANCOR Tasks';
+
+    // Page title
+    //
     $window.document.title = 'Tasks | ANCOR Dashboard';
 
     /*

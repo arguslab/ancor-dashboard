@@ -28,6 +28,13 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
  */
 angular.module('ancorDashboardApp')
   .controller('MainCtrl', function ($scope, $rootScope, $http, $window, $modal, $log, $route) {
+
+    // h1 title
+    //
+    $scope.title = 'ANCOR Index';
+
+    // Page title
+    //
     $window.document.title = 'ANCOR Dashboard';
 
     /*

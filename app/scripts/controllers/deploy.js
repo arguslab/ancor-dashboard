@@ -34,6 +34,10 @@ angular.module('ancorDashboardApp')
       'Karma'
     ];
 
+    // h1 title in page
+    $scope.title = 'ANCOR Deploy';
+
+    // title
     $window.document.title = 'Deploy | ANCOR Dashboard';
 
     /*

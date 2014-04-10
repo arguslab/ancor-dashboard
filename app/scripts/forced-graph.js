@@ -24,7 +24,7 @@ window.setupForcedGraph = function(instances) {
   });
 
   var width = 660,
-      height = 450;
+      height = 390;
 
   var force = d3.layout.force()
       .nodes(d3.values(nodes))
