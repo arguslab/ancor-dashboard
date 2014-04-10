@@ -6,6 +6,8 @@
 angular.module('ancorDashboardApp')
   .controller('EnvCtrl', function ($scope, $rootScope, $http, $window, $route) {
 
+    $window.document.title = 'Environments | ANCOR Dashboard';
+
     /*
      *  REST API calls to ANCOR
      */
@@ -61,3 +63,5 @@ angular.module('ancorDashboardApp')
       'Karma'
     ];
   });
+
+EnvCtrl.$inject = ['$window'];

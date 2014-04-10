@@ -4,7 +4,9 @@
  *  Task Controller
  */
 angular.module('ancorDashboardApp')
-  .controller('TasksCtrl', function ($scope, $rootScope, $http) {
+  .controller('TasksCtrl', function ($scope, $rootScope, $http, $window) {
+
+    $window.document.title = 'Tasks | ANCOR Dashboard';
 
     /*
      *  REST API calls to ancor
@@ -77,3 +79,5 @@ angular.module('ancorDashboardApp')
       }
     };
   });
+
+TasksCtrl.$inject = ['$window'];

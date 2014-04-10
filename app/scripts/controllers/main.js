@@ -28,6 +28,7 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
  */
 angular.module('ancorDashboardApp')
   .controller('MainCtrl', function ($scope, $rootScope, $http, $window, $modal, $log, $route) {
+    $window.document.title = 'ANCOR Dashboard';
 
     /*
      *  ANCOR REST API calls
@@ -222,3 +223,5 @@ angular.module('ancorDashboardApp')
     ];
 
   });
+
+MainCtrl.$inject = ['$window'];

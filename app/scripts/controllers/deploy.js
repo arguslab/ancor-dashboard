@@ -34,6 +34,8 @@ angular.module('ancorDashboardApp')
       'Karma'
     ];
 
+    $window.document.title = 'Deploy | ANCOR Dashboard';
+
     /*
      *  ANCOR REST API Calls
      */
@@ -173,3 +175,5 @@ angular.module('ancorDashboardApp')
     };
 
   });
+
+DeployCtrl.$inject = ['$window'];
