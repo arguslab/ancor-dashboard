@@ -2,6 +2,12 @@
 
 Follow the quickstart guide to get the dashboard up and running
 
+## Deploying ancor-dashboard
+
+If you wish to deploy ancor-dashboard alongside [ancor](https://github.com/arguslab/ancor), please go to the [releases](https://github.com/arguslab/ancor-dashboard/releases) section of this repository and download the binaries. These can be placed within an nginx or Apache server.
+
+_Note:_ If your ancor deployment exists on a different domain from where you are deploying ancor-dashboard, you will have to change this in the [source](https://github.com/arguslab/ancor-dashboard/blob/master/doc/setup.md#defining-the-ip-address-of-ancor) and rebuild following the quickstart guide below.
+
 ## Quickstart guide
 
 So far, these setup instructions have been tested on OSX and Debian. Other OS's have not been tested. If you would like to test out the project on something like CentOS, refer to the documentation of a specific tool for getting it installed (like nodeJS or bower).
