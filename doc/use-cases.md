@@ -8,38 +8,6 @@ Information is subject to change.
 
 If you are interested in the basic layout of ANCOR's REST API, please visit their [docs](https://github.com/arguslab/ancor/blob/master/doc/design.md) for more information.
 
-## Instances
+## General Use-Cases
 
-### Viewing Instances
-
-### Filtering Instances
-
-### Adding a new role
-
-### Removing a role
-
-### Viewing the details of an instance
-
-## Deploying ancor
-
-This defines how users will submit arml configs to ancor
-
-### Submit a New Config
-
-Ace Editor
-
-### Goal and Role Templates
-
-### Help
-
-## Environments
-
-### Deleting an Environment
-
-## Tasks
-
-### Viewing all Tasks
-
-### Filtering Tasks
-
-### Refreshing Tasks
+If you are interested in some of the various use cases for ancor-dashboard, please take the time to read a [detailed report](https://github.com/briancain/Masters-Report) on the project. The specific section starts at 2.4. It gives a detailed overview of the use cases that this project has.
