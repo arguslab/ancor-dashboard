@@ -47,6 +47,12 @@ angular.module('ancorDashboardApp')
       $scope.version = data.version;
     });
 
+    // Gets current lock status from ANCOR environment
+    //
+    $http.get($rootScope.ancorIPAddress+'/v1/environments').success(function(data) {
+      $scope.envLocked = data[0].locked;
+    });
+
     // Gets GOALS from ANCOR
     // Currently only supports 1 goal
     //
@@ -217,6 +223,17 @@ angular.module('ancorDashboardApp')
       }, function () {
         $log.info('Modal dismissed at: ' + new Date());
       });
+    };
+
+    // Determines if buttons should be enabled
+    // or disabled depending on if environment is locked
+    //
+    $scope.getState = function (lockState) {
+      if (lockState === true) {
+        return 'disabled';
+      } else {
+        return '';
+      }
     };
 
     $scope.awesomeThings = [

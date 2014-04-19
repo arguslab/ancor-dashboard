@@ -65,7 +65,7 @@
       <h4>Instance State Details</h4>
       <!-- <div class="col-md-9"> -->
       <div class="btn-group">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+        <button type="button" class="btn btn-primary dropdown-toggle {{getState(envLocked)}}" data-toggle="dropdown">
           Add New Instance <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu" >
@@ -123,7 +123,7 @@
             </td>
             <td>
               <div class="btn-group">
-                <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                <button type="button" class="btn btn-warning dropdown-toggle {{getState(envLocked)}}" data-toggle="dropdown">
                   Action <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu">
