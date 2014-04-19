@@ -1,4 +1,4 @@
-# ancor-dashboard v0.0.3
+# ancor-dashboard v0.1.0
 
 A frontend framework for ancor
 
