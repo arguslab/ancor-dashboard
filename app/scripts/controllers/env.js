@@ -8,7 +8,7 @@ angular.module('ancorDashboardApp')
 
     // h1 title
     //
-    $scope.title = 'ANCOR Enviornments';
+    $scope.title = 'ANCOR Environments';
 
     // page title
     //
